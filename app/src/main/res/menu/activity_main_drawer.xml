@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+
+    <item
+        android:title="@string/liveTracking"
+
+        >
+        <menu>
+            <group android:checkableBehavior="none" >
+                <item
+                    android:id="@+id/nav_live_tracking"
+                    android:icon="@drawable/user_icon"
+                    android:title="Live Tracking" />
+                <item
+                    android:id="@+id/nav_geofencing"
+                    android:icon="@drawable/locked_icon"
+                    android:title="Geofencing" />
+
+                <item
+                    android:id="@+id/nav_history"
+                    android:icon="@drawable/history_icon"
+                    android:title="History" />
+            </group>
+        </menu>
+    </item>
+
+    <item  android:title="@string/reports">
+        <menu>
+            <group android:checkableBehavior="none">
+                <item
+                    android:id="@+id/nav_main_report"
+                    android:icon="@drawable/report_icon"
+                    android:title="Main Report" />
+                <item
+                    android:id="@+id/nav_history_report"
+                    android:icon="@drawable/report_history_icon"
+                    android:title="History Report" />
+
+
+            </group>
+        </menu>
+    </item>
+
+    <item  android:title="@string/tools">
+        <menu>
+            <group android:checkableBehavior="none">
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/logout_icon_arrow_out"
+                    android:title="Log out" />
+            </group>
+        </menu>
+    </item>
+
+
+
+</menu>

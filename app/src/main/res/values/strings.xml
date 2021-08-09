@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">GoSafe</string>
+
+
+    <!--Login Screen Strings -->
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="login">Password</string>
+    <string name="title_activity_dashboard_screen">DashboardScreen</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="search_string_hint">Search here</string>
+
+    <string name="menu_home">Dashboard</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="copy_right_cation">Copyright (c) 2021 GoSafe.All rights reserved.\nCrafted by TechLeads</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+
+    <string name="liveTracking"><font color="#FFFFFF">Live Tracking</font></string>
+    <string name="reports"><font color="#FFFFFF">Reports</font></string>
+    <string name="tools">
+        <font color="#FFFFFF" >Tools</font>
+    </string>
+</resources>

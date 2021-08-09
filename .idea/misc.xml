@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/check_box_background_selector_main_grouped_ticket.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/drawable/circuler_shape_for_vehicles_main_layout_ticket.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/drawable/radio_button_fill_for_grouped_ticket_main.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/drawable/radio_button_for_grouped_ticket_main.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/layout/activity_login_screen.xml" value="0.23385416666666667" />
+        <entry key="app/src/main/res/layout/activity_vehicles_and_assets_screen.xml" value="0.23385416666666667" />
+        <entry key="app/src/main/res/layout/asset_main_ticket.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/child_item_grouped_main_ticket.xml" value="0.22407407407407406" />
+        <entry key="app/src/main/res/layout/fragment_assets.xml" value="0.23385416666666667" />
+        <entry key="app/src/main/res/layout/fragment_vehicles.xml" value="0.23385416666666667" />
+        <entry key="app/src/main/res/layout/grouped_main_ticket.xml" value="0.4783683559950556" />
+        <entry key="app/src/main/res/layout/vheicle_list_item_layout.xml" value="0.22407407407407406" />
+        <entry key="app/src/main/res/menu/contexual_menu_for_vehicle_screen.xml" value="0.23802083333333332" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

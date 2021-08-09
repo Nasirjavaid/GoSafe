@@ -1,0 +1,37 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+
+
+
+<!--    login Screen fontSize -->
+
+    <dimen name="login_input_text_size">14.0dp</dimen>
+    <dimen name="login_input_hin_text_size">14.0dp</dimen>
+    <dimen name="login_button_text_size">14.0dp</dimen>
+    <dimen name="check_box_text_font_size">12.5dp</dimen>
+
+
+
+<!--    Small pie size and dimens-->
+
+    <dimen name="pie_height">60dp</dimen>
+    <dimen name="pie_width">60dp</dimen>
+    <dimen name="pie_layout_top_margin">21dp</dimen>
+    <dimen name="pie_center_icon_height">40dp</dimen>
+    <dimen name="pie_center_icon_width">40dp</dimen>
+    <dimen name="pie_text_size">12.5dp</dimen>
+    <dimen name="pie_number_text_size">12.5dp</dimen>
+
+    <dimen name="pie_line_thikness">16dp</dimen>
+
+<!--    bottom tickets dimens-->
+    <dimen name="headin_font_size">18dp</dimen>
+    <dimen name="sub_heading_font_siz">11.5dp</dimen>
+
+</resources>

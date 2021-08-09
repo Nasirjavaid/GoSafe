@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#274778</color>
+    <color name="purple_500">#274778</color>
+    <color name="purple_700">#274778</color>
+    <color name="teal_200">#274778</color>
+    <color name="teal_700">#274778</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="searchViewBackgroundColor">#7AFFFFFF</color>
+
+
+    <color name="dividerColor">#7AB3B2B2</color>
+
+<!--    Green 00CI90-->
+<!--    Blue 2876FC-->
+<!--    Grey 9B9B9B-->
+<!--    Red  FC4A4A-->
+<!--    Yellow F9E206-->
+<!--    Background grey EODEDE-->
+
+    <color name="green">#00C190</color>
+    <color name="blue">#2876FC</color>
+    <color name="grey">#9B9B9B</color>
+    <color name="red">#FC4A4A</color>
+    <color name="yellow">#F9E206</color>
+    <color name="background_grey">#E0DEDE</color>
+    <color name="background_grey_two">#eeeced</color>
+    <color name="dashboard_card_background_grey">#e7e7e7</color>
+
+
+    <color name="dashboard_item_card_color_one">#6ec1ee</color>
+    <color name="dashboard_item_card_color_two">#85ebc7</color>
+    <color name="dashboard_item_card_color_three">#7da2fa</color>
+
+
+    <!-- App colors-->
+    <color name="app_default_color">#274778</color>
+    <color name="app_default_color_secondary">#5B80BA</color>
+
+</resources>

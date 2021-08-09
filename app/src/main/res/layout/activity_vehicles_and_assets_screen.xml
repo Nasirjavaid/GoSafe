@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/main_layout"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_default_color"
+        android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/new_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="@color/app_default_color"
+        android:theme="@style/CustomToolbarTheme"
+       >
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="false"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="12dp"
+        android:paddingStart="-12dp"
+        android:focusable="false"
+        android:paddingEnd="-12dp"
+        android:iconifiedByDefault="false"
+        android:requiresFadingEdge="horizontal"
+        android:queryBackground="@android:color/transparent"
+        android:background="@drawable/search_view_background"
+        android:searchIcon="@drawable/ic_baseline_search_24"
+        android:theme="@style/SearchViewTheme"
+        android:closeIcon="@drawable/ic_baseline_cancel_24"
+        android:queryHint="Search through 799 objects" />
+
+
+
+
+        <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+            android:id="@+id/segmented_button_group"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="4dp"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:elevation="0dp"
+            android:background="@color/app_default_color"
+            app:borderColor="@color/white"
+            app:borderWidth="1dp"
+            app:divider="@color/white"
+            app:dividerPadding="0dp"
+            app:dividerWidth="1dp"
+            app:position="0"
+            app:radius="5dp"
+
+            app:ripple="true"
+
+            app:rippleColor="@color/app_default_color_secondary"
+            app:selectedBackground="@color/white"
+            tools:ignore="OnClick">
+
+            <com.addisonelliott.segmentedbutton.SegmentedButton
+                android:id="@+id/grouped_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                app:drawableGravity="top"
+                app:selectedTextColor="@color/app_default_color"
+                app:text="Grouped"
+                app:selectedBackground="@color/white"
+                app:textColor="@color/white" />
+            <com.addisonelliott.segmentedbutton.SegmentedButton
+                android:id="@+id/assets_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                app:drawableGravity="top"
+                app:selectedTextColor="@color/app_default_color"
+                app:text="Assets"
+                app:selectedBackground="@color/white"
+                app:textColor="@color/white" />
+        </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ProgressBar
+            android:id="@+id/va_progressBar_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/app_default_color"
+            android:indeterminateTintMode="src_atop"
+            android:maxWidth="150dp"
+            android:minWidth="150dp"
+            android:minHeight="35dp"
+
+            app:layout_constraintBottom_toBottomOf="@+id/frame_container"
+            app:layout_constraintEnd_toEndOf="@+id/frame_container"
+            app:layout_constraintStart_toStartOf="@+id/frame_container"
+            app:layout_constraintTop_toTopOf="@+id/frame_container" />
+        <FrameLayout
+            android:id="@+id/frame_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
