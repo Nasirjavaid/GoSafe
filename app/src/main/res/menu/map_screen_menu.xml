@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+
+        android:id="@+id/map_action_settings"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Settings"
+
+        app:showAsAction="ifRoom|withText" >
+    <menu>
+        <item
+            android:id="@+id/action_controls"
+
+            android:title="Controls" />
+        <item
+            android:id="@+id/action_settings"
+            android:title="Settings" />
+        <item
+            android:id="@+id/action_history"
+            android:title="History" />
+    </menu>
+
+
+</item>
+
+</menu>

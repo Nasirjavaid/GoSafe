@@ -7,14 +7,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.twobvt.gosafe.network.Resource
 import com.twobvt.gosafe.vehiclesAndAssets.vaRepository.VaRepository
-import com.twobvt.gosafe.vehiclesAndAssets.vaResponces.VehicleTreeList
+import com.twobvt.gosafe.vehiclesAndAssets.vaResponces.VaItemList
 import kotlinx.coroutines.launch
 
 open class VaViewModel( private val vaRepository : VaRepository) : ViewModel() {
 
     // getting data from repo
-    private val _vaResponse : MutableLiveData<Resource<VehicleTreeList>> = MutableLiveData()
-    val vaResponse : LiveData<Resource<VehicleTreeList>> get() = _vaResponse
+    private val _vaResponse : MutableLiveData<Resource<VaItemList>> = MutableLiveData()
+    val vaResponse : LiveData<Resource<VaItemList>> get() = _vaResponse
 
 
 

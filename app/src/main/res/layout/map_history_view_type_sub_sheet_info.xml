@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_sheet_bg"
+
+    android:paddingHorizontal="8dp"
+    android:id="@+id/bottom_sheet_dialog_for_map_control_send_out_put"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:weightSum="3"
+        android:paddingHorizontal="12dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:src="@drawable/go_safe_logo" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Information"
+            android:textColor="@color/app_default_color"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/btn_cancel_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:text="Close"
+            android:textColor="@color/green"
+            android:textSize="16dp" />
+
+    </RelativeLayout>
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/semiGray">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_grey"
+            android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/background_three">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginVertical="5.0dp"
+                android:text="@string/general_information"
+                android:textColor="@color/text_gray"
+                android:textSize="18dp" />
+
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginVertical="6dp"
+                android:paddingBottom="6dp"
+                android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Serial: "
+            android:textColor="@color/app_default_color"
+            android:textSize="@dimen/bottom_sheet_headings"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1020232"
+            android:textSize="@dimen/bottom_sheet_headings"
+            android:textColor="@color/grey"
+            />
+        </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name: "
+                    android:textSize="@dimen/bottom_sheet_headings"
+                    android:textColor="@color/app_default_color"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LMG 1020"
+                    android:textSize="@dimen/bottom_sheet_headings"
+                    android:textColor="@color/grey" />
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Latitude: "
+                    android:textSize="@dimen/bottom_sheet_headings"
+                    android:textColor="@color/app_default_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="34.74597 / 78.99387678"
+                    android:textSize="@dimen/bottom_sheet_headings"
+                    android:textColor="@color/grey" />
+
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Longitude: "
+                    android:textSize="@dimen/bottom_sheet_headings"
+                    android:textColor="@color/app_default_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="34.988998 / 78.038309"
+                    android:textSize="@dimen/bottom_sheet_headings"
+                    android:textColor="@color/grey" />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Last Updated: "
+                    android:textSize="@dimen/bottom_sheet_headings"
+                    android:textColor="@color/app_default_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Dec 20 2020 3:30:05 PM"
+                    android:textSize="@dimen/bottom_sheet_headings"
+                    android:textColor="@color/grey" />
+
+
+
+            </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/semiGray">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_grey"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/background_three">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="5.0dp"
+                    android:text="@string/sensors_information"
+                    android:textColor="@color/text_gray"
+                    android:textSize="18dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginVertical="6dp"
+                android:paddingBottom="6dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Velocity "
+                        android:textColor="@color/app_default_color"
+                        android:textSize="@dimen/bottom_sheet_headings" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20.0MPH / 35 KPH"
+                        android:textSize="@dimen/bottom_sheet_headings"
+                        android:textColor="@color/grey" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Heading"
+                        android:textSize="@dimen/bottom_sheet_headings"
+                        android:textColor="@color/app_default_color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1848 south"
+                        android:textSize="@dimen/bottom_sheet_headings"
+                        android:textColor="@color/grey" />
+
+
+
+                </LinearLayout>
+                </LinearLayout>
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="GPS Satelite "
+                            android:textColor="@color/app_default_color"
+                            android:textSize="@dimen/bottom_sheet_headings" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="@dimen/bottom_sheet_headings"
+                            android:textColor="@color/grey" />
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ignition"
+                            android:textSize="@dimen/bottom_sheet_headings"
+                            android:textColor="@color/app_default_color" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Off"
+                            android:textSize="@dimen/bottom_sheet_headings"
+                            android:textColor="@color/grey" />
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Power "
+                            android:textColor="@color/app_default_color"
+                            android:textSize="@dimen/bottom_sheet_headings" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            android:textSize="@dimen/bottom_sheet_headings"
+                            android:textColor="@color/grey" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Name"-->
+<!--                            android:textSize="@dimen/bottom_sheet_headings"-->
+<!--                            android:textColor="@color/app_default_color"-->
+<!--                            ></TextView>-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="LMG 1020"-->
+<!--                            android:textSize="@dimen/bottom_sheet_headings"-->
+<!--                            android:textColor="@color/grey"-->
+<!--                            ></TextView>-->
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
+

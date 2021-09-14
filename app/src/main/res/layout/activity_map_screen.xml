@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/new_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="@color/app_default_color"
+        android:theme="@style/CustomToolbarTheme">
+
+
+
+        <TextView
+            android:id="@+id/toolbarText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Map View"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            ></TextView>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.twobvt.gosafe.map.mapScreen.MapScreen" />
+
+        <com.nambimobile.widgets.efab.ExpandableFabLayout
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:paddingVertical="26dp"
+            android:elevation="0dp"
+            android:paddingRight="30dp"
+
+            app:layout_constraintBottom_toBottomOf="@+id/map"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/map"
+
+            app:layout_constraintVertical_bias="1.0">
+
+            <!-- The next 3 Views will only display in portrait orientation -->
+
+
+            <com.nambimobile.widgets.efab.ExpandableFab
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                app:layout_anchorGravity="bottom"
+                android:background="@color/grey"
+                app:efab_color="@color/app_default_color"
+                app:efab_fabOptionSize="normal"
+                app:efab_orientation="portrait"
+                app:elevation="0dp"
+                app:efab_successiveFabOptionMarginPx="90"
+                app:efab_closingAnticipateTension="0"
+                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.921"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.956" />
+
+            <com.nambimobile.widgets.efab.FabOption
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickPortraitOption1"
+                app:maxImageSize="35dp"
+                android:src="@drawable/fab_location_icon"
+                app:elevation="0dp"
+                android:layout_marginTop="4dp"
+                app:fab_color="@color/app_default_color"
+                app:fab_orientation="portrait" />
+
+            <com.nambimobile.widgets.efab.FabOption
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickPortraitOption1"
+                app:fab_icon="@drawable/fab_map_location"
+                app:elevation="0dp"
+                app:maxImageSize="35dp"
+                android:layout_marginTop="4dp"
+                app:fab_color="@color/app_default_color"
+                app:fab_orientation="portrait" />
+
+            <com.nambimobile.widgets.efab.FabOption
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickPortraitOption1"
+                app:fab_icon="@drawable/fab_refresh_icon"
+                app:elevation="0dp"
+                app:maxImageSize="35dp"
+                android:layout_marginTop="4dp"
+                app:fab_color="@color/app_default_color"
+                app:fab_orientation="portrait" />
+
+            <com.nambimobile.widgets.efab.FabOption
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickPortraitOption1"
+                app:fab_icon="@drawable/fab_location_pin"
+                app:elevation="0dp"
+                app:maxImageSize="35dp"
+                android:layout_marginTop="4dp"
+                app:fab_color="@color/app_default_color"
+                app:fab_orientation="portrait" />
+
+            <com.nambimobile.widgets.efab.FabOption
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickPortraitOption1"
+                app:fab_icon="@drawable/fab_vehicle_icon"
+                app:elevation="0dp"
+                app:maxImageSize="35dp"
+                android:layout_marginTop="4dp"
+                app:fab_color="@color/app_default_color"
+                app:fab_orientation="portrait" />
+
+            <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/fab_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:fab_icon="@drawable/fab_info_icon"
+                app:elevation="0dp"
+                app:maxImageSize="35dp"
+                app:fab_color="@color/app_default_color"
+                app:fab_orientation="portrait" />
+
+
+        </com.nambimobile.widgets.efab.ExpandableFabLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

@@ -8,6 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="transparent">#00E22626</color>
+    <color name="bottom_sheet_btn_color">#ebb73e</color>
+
     <color name="searchViewBackgroundColor">#7AFFFFFF</color>
 
 
@@ -26,8 +29,13 @@
     <color name="red">#FC4A4A</color>
     <color name="yellow">#F9E206</color>
     <color name="background_grey">#E0DEDE</color>
+    <color name="background_three">#CCCCCC</color>
+    <color name="grey_for_heading_text">#555555</color>
     <color name="background_grey_two">#eeeced</color>
+    <color name="background_grey_one">#FAFAFA</color>
     <color name="dashboard_card_background_grey">#e7e7e7</color>
+
+    <color name="text_gray">#4E4E4E</color>
 
 
     <color name="dashboard_item_card_color_one">#6ec1ee</color>

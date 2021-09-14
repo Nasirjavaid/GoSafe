@@ -36,7 +36,8 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
 
 // disable the night mode for the whole application
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        println("Will Call Api Here")
+
+
 
         // instantiate
 
@@ -47,28 +48,48 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
         tinyDB = TinyDB(applicationContext)
         methods = Methods()
 
+
+        //checking if user saved his data with Remember me option
+        getUserValuesFromSharedPrefAsIfRememberIsTrue()
+
     }
     
     // Storing user credentials in Shared Preferences
-   private fun rememberMeCheckBox(accessToken:String){
+   private fun rememberMeCheckBox(){
 
         if(binding.rememberMeCheckBox.isChecked)
         {
 
-            // save token to preferences
-            saveAccessToken(applicationContext,accessToken)
 
             println("Value stored in Shared Storage ${tinyDB.getString("accessToken")}")
+
+            tinyDB.putBoolean("remeberMe",true)
+            tinyDB.putString("userName",userName)
+            tinyDB.putString("password",password)
+            tinyDB.putString("grantType",grantType)
 
         } else if(!binding.rememberMeCheckBox.isChecked){
 
-            deleteAccessToken(applicationContext,"")
-            println("Value stored in Shared Storage ${tinyDB.getString("accessToken")}")
+            tinyDB.putBoolean("remeberMe",false)
+            tinyDB.putString("userName","")
+            tinyDB.putString("password","")
+            tinyDB.putString("grantType","")
 
         }
     }
 
 
+   private fun getUserValuesFromSharedPrefAsIfRememberIsTrue(){
+
+
+       if (tinyDB.getBoolean("remeberMe"))
+       {
+           binding.userName.setText(tinyDB.getString("userName"))
+
+           binding.password.setText( tinyDB.getString("password"))
+           binding.rememberMeCheckBox.isChecked =true
+       }
+   }
     // passing viewModel to Base class
      override fun getViewModel() = AuthViewModel::class.java
 
@@ -81,14 +102,10 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
     //Screen clicks setup
      override fun onClick(v: View?) {
 
-
          when (v!!.id) {
              R.id.login_button -> {
                  callLoginApiFromViewModel()}
              }
-
-
-
      }
 
     private fun navigateToDashboard(){
@@ -104,8 +121,6 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
           userName = binding.userName.text.toString()
           password = binding.password.text.toString()
 
-
-
          when {
              userName.isEmpty() -> {
                  Toast.makeText(this, "Please Enter User Name", Toast.LENGTH_SHORT).show()
@@ -119,25 +134,17 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
              }
              else -> {
 
-
                  //Button Visibility and click event working
                  loginButton.isClickable = false
                  loginButton.setEnabled(false);
                  //loginButton.visibility = View.INVISIBLE
                  //progress bar Visibility
 
-
-
-
-
                  println("Data is here $userName , $password and grant Type '$grantType' ::: @@@@@@@@@@@@@@@@@")
-
-
 
                  //Custom waiting
                   val handler = Handler()
                           handler.postDelayed(Runnable {
-
 
                  //Calling login function from view model
                  viewModel.login(userName, password, grantType)
@@ -158,9 +165,10 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
                              progressBarCircle.visibility = View.INVISIBLE
                              println("Login Success")
 
-
                              //Storing value to local storage
-                             rememberMeCheckBox(it.value.access_token)
+                             saveAccessToken(applicationContext,it.value.access_token)
+
+                             rememberMeCheckBox()
                              //navigate to Dashboard
                              navigateToDashboard()
 
@@ -186,7 +194,6 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
      }
 
  }
-
 
 //     override fun onCreate(savedInstanceState: Bundle?) {
 //

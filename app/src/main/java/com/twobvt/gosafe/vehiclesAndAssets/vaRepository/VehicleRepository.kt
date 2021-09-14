@@ -12,7 +12,7 @@ open class VehicleRepository() : BaseRepository() {
 
      fun getVehiclesList() : List<SubMenu> {
 
-         println("data  in  Vehicles repo ${subMenuItemListGlobal.size}")
+         //println("data  in  Vehicles repo ${subMenuItemListGlobal.size}")
         return  subMenuItemListGlobal
     }
 
@@ -21,7 +21,7 @@ open class VehicleRepository() : BaseRepository() {
     fun sendVehiclesList(subMenuItemList:List<SubMenu>){
 
         subMenuItemListGlobal = subMenuItemList
-        println("data received in repo ${subMenuItemListGlobal.size}")
+       // println("data received in repo ${subMenuItemListGlobal.size}")
 
     }
 

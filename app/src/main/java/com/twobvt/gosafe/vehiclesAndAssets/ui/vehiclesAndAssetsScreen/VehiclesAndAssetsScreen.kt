@@ -39,10 +39,9 @@ class VehiclesAndAssetsScreen :
     private lateinit var tinyDB: TinyDB
 
     private lateinit var vehiclesRepository: VehicleRepository
-    private lateinit var assetRepository :AssetRepository
-
-    var subMenuListVehicles: List<com.twobvt.gosafe.vehiclesAndAssets.vaResponces.SubMenu> = ArrayList()
-    var subMenuListAssets: List<com.twobvt.gosafe.vehiclesAndAssets.vaResponces.SubMenu> = ArrayList()
+    private lateinit var assetRepository : AssetRepository
+    var subMenuListVehicles : List<com.twobvt.gosafe.vehiclesAndAssets.vaResponces.SubMenu> = ArrayList()
+    var subMenuListAssets : List<com.twobvt.gosafe.vehiclesAndAssets.vaResponces.SubMenu> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -207,17 +206,17 @@ class VehiclesAndAssetsScreen :
                     }
                     is Resource.Success -> {
 
-                        println("Success $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+                        //println("Success $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 
                         //this function is replacing thr initial view
                         replaceFragment(VehiclesFragment())
 
-                        subMenuListVehicles =it.value[0].SubMenu
-                        subMenuListAssets =it.value[1].SubMenu
+                        subMenuListVehicles =it.value.data[0].SubMenu
+                        subMenuListAssets =it.value.data[1].SubMenu
                         //sending data to repositories
                         vehiclesRepository.sendVehiclesList(subMenuListVehicles)
                         assetRepository.sendAssetList(subMenuListAssets)
-                        println("Success sublist size is  ${  it.value[0]}")
+//                        println("Success sublist size is  ${  it.value[0]}")
 
                     }
 

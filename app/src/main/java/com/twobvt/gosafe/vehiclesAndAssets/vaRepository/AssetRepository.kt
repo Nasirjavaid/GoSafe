@@ -17,7 +17,7 @@ class AssetRepository : BaseRepository() {
     fun sendAssetList(subMenuItemList:List<SubMenu>){
 
         subMenuItemListGlobal = subMenuItemList
-        println("data received in repo ${subMenuItemListGlobal.size}")
+       // println("data received in repo ${subMenuItemListGlobal.size}")
 
     }
 }

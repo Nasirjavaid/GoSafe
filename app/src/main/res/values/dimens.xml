@@ -30,8 +30,16 @@
 
     <dimen name="pie_line_thikness">16dp</dimen>
 
+
+    <dimen name="margin_top_bottom_sheet_Items">2dp</dimen>
+
+    <dimen name="bottom_sheet_text_size_items_below">12.5dp</dimen>
+
 <!--    bottom tickets dimens-->
     <dimen name="headin_font_size">18dp</dimen>
     <dimen name="sub_heading_font_siz">11.5dp</dimen>
+
+    <dimen name="bottom_sheet_headings">15dp</dimen>
+
 
 </resources>

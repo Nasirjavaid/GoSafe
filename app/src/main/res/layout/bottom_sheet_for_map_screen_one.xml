@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/upper_layout_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+
+        android:background="@drawable/layout_bg"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/download"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="8dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground">
+
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginVertical="4dp"
+                android:src="@drawable/delivery_van" />
+
+
+            <Button
+                android:id="@+id/show_less_button"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:background="@drawable/button_bg"
+                android:text="show less"
+                android:textColor="@color/app_default_color"
+                android:textFontWeight="1"
+                android:textSize="10dp"></Button>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_device_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Device name"
+            android:textColor="@color/white"
+            android:layout_marginLeft="6dp"
+            android:textSize="22dp"
+            android:layout_gravity="center_vertical"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:background="@color/grey"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="100dp"
+            android:layout_height="0.5dp"></View>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+        android:orientation="horizontal"
+        >
+
+<!--    first column-->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="16dp"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/shareLinearLayout"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="1dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GPS: "
+            android:textColor="@color/white"
+            android:textSize="@dimen/sub_heading_font_siz"
+            android:layout_gravity="center_vertical"
+            android:padding="1dp"/>
+
+        <TextView
+            android:id="@+id/tv_gps_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" -"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sub_heading_font_siz"
+            android:layout_gravity="center_vertical"
+            android:padding="1dp"/>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="1dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HDOP: "
+                android:textColor="@color/white"
+                android:textSize="@dimen/sub_heading_font_siz"
+                android:layout_gravity="center_vertical"
+                android:padding="1dp"/>
+
+
+            <TextView
+                android:id="@+id/tv_hdop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" -"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sub_heading_font_siz"
+                android:layout_gravity="center_vertical"
+                android:padding="1dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+        <!--2nd column-->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="1dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GSM: "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sub_heading_font_siz"
+                    android:layout_gravity="center_vertical"
+                    android:padding="1dp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_gsm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" -"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sub_heading_font_siz"
+                    android:layout_gravity="center_vertical"
+                    android:padding="1dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="1dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VDOP: "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sub_heading_font_siz"
+                    android:layout_gravity="center_vertical"
+                    android:padding="1dp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_vdop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" -"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sub_heading_font_siz"
+                    android:layout_gravity="center_vertical"
+                    android:padding="1dp"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="1dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GPS: "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sub_heading_font_siz"
+                    android:layout_gravity="center_vertical"
+                    android:padding="1dp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_gps_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" -"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sub_heading_font_siz"
+                    android:layout_gravity="center_vertical"
+                    android:padding="1dp"/>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!--    3rd column-->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="bottom|right"
+
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="1dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INT: "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sub_heading_font_siz"
+                    android:layout_gravity="center_vertical"
+                    android:padding="1dp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_int"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" -"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sub_heading_font_siz"
+                    android:layout_gravity="center_vertical"
+                    android:padding="1dp"/>
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="1dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EXIT: "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sub_heading_font_siz"
+                    android:layout_gravity="center_vertical"
+                    android:padding="1dp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_exit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" -"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sub_heading_font_siz"
+                    android:layout_gravity="center_vertical"
+                    android:padding="1dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:background="@color/grey"
+        android:layout_marginBottom="5dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_height="0.5dp"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="1dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Speed: "
+                    android:textColor="@color/white"
+                    android:textSize="10.5dp"
+                    android:layout_gravity="center"
+                    android:padding="1dp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 km/h"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/headin_font_size"
+                    android:layout_gravity="center"
+                    android:padding="1dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/grey"
+                android:layout_marginBottom="5dp"
+                android:layout_height="match_parent"></View>
+            <LinearLayout
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="1dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RPM:"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="10.5dp"
+
+                    android:padding="1dp"/>
+
+                <TextView
+                    android:id="@+id/tv_rpm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 R/min"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/headin_font_size"
+                    android:layout_gravity="center"
+                    android:padding="1dp"/>
+
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/grey"
+                android:layout_marginBottom="5dp"
+                android:layout_height="match_parent"></View>
+            <LinearLayout
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="1dp">
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mileage:"
+                    android:textColor="@color/white"
+                    android:textSize="10.5dp"
+                    android:layout_gravity="center"
+                    android:padding="1dp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_mileage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/headin_font_size"
+                    android:layout_gravity="center"
+                    android:padding="1dp"/>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:background="@color/grey"
+            android:layout_marginBottom="5dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_height="0.5dp"></View>
+
+
+        <!--        Bottom portion -->
+
+
+        <Button
+            android:id="@+id/show_more_button"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:background="@drawable/button_bg"
+            android:text="show more"
+            android:textFontWeight="1"
+            android:textColor="@color/app_default_color"
+            android:layout_marginBottom="16dp"
+            android:textSize="10dp"></Button>
+
+
+        <LinearLayout
+            android:id="@+id/bottom_portion_layout"
+            android:layout_width="match_parent"
+
+            android:visibility="gone"
+            android:animateLayoutChanges="true"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_default_color"
+            android:orientation="vertical"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Device Status"
+                android:textSize="@dimen/sub_heading_font_siz"
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"
+                >
+
+            </TextView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="6dp"
+                    android:padding="6dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="4dp"
+                    android:src="@drawable/location_pin_icon" />
+
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:background="@color/grey"
+                    android:layout_marginLeft="4dp"
+                    android:layout_height="match_parent"></View>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Coordinates"
+                            android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                            android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                            android:textColor="@color/white"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="GeoFence"
+                            android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                            android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                            android:textColor="@color/white"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Route Status"
+                            android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                            android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                            android:textColor="@color/white"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Driver Name"
+                            android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                            android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                            android:textColor="@color/white"
+                            />
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="56dp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/tv_coordinates"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" -"
+                            android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                            android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                            android:textColor="@color/white"
+                            />
+
+
+                        <TextView
+                            android:id="@+id/tv_geofence"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" -"
+                            android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                            android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                            android:textColor="@color/white"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_route_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" -"
+                            android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                            android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                            android:textColor="@color/white"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_driver_name_one"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" -"
+                            android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                            android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                            android:textColor="@color/white"
+
+                            />
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Asset Info"
+            android:textSize="@dimen/sub_heading_font_siz"
+            android:textColor="@color/white"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            >
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center"
+                android:padding="6dp"
+                android:layout_marginVertical="4dp"
+                android:src="@drawable/asset_info" />
+
+
+            <View
+                android:layout_width="0.5dp"
+                android:background="@color/grey"
+                android:layout_marginLeft="4dp"
+                android:layout_height="match_parent"></View>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Device Info:"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Device#:"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Device Type:"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Device Model:"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Driver Name:"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim#:"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Management#:"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date:"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+                        />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="43dp"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/tv_device_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" -"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tv_device_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" -"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_device_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" -"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_device_model"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" -"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+
+                        />
+                    <TextView
+                        android:id="@+id/tv_driver_name_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" -"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+
+                        />
+                    <TextView
+                        android:id="@+id/tv_sim_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+
+                        />
+                    <TextView
+                        android:id="@+id/tv_management_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" -"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+
+                        />
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" -"
+                        android:layout_marginTop="@dimen/margin_top_bottom_sheet_Items"
+                        android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                        android:textColor="@color/white"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

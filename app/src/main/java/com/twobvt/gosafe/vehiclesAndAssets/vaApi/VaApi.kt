@@ -1,6 +1,6 @@
 package com.twobvt.gosafe.vehiclesAndAssets.vaApi
 
-import com.twobvt.gosafe.vehiclesAndAssets.vaResponces.VehicleTreeList
+import com.twobvt.gosafe.vehiclesAndAssets.vaResponces.VaItemList
 import retrofit2.http.GET
 
 interface VaApi {
@@ -11,6 +11,6 @@ interface VaApi {
 
     suspend fun getVehiclesTreeList(
 
-        ) : VehicleTreeList
+        ) : VaItemList
 
 }

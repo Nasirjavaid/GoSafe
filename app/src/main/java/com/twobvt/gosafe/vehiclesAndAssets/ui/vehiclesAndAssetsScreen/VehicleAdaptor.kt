@@ -1,5 +1,6 @@
 package com.twobvt.gosafe.vehiclesAndAssets.ui.vehiclesAndAssetsScreen
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnLongClickListener
@@ -8,13 +9,9 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.twobvt.gosafe.R
-import com.twobvt.gosafe.config.visible
-import com.twobvt.gosafe.vehiclesAndAssets.vaViewModel.VehicleSelectionViewModel
+import com.twobvt.gosafe.map.mapRepository.MapRepository
+import com.twobvt.gosafe.map.mapScreen.MapScreen
 import kotlinx.android.synthetic.main.grouped_main_ticket.view.*
-
-
-
-
 
 open class VehicleAdaptor :
     RecyclerView.Adapter<VehicleAdaptor.DataViewHolder>()  {
@@ -22,7 +19,7 @@ open class VehicleAdaptor :
     var subMenuList: List<com.twobvt.gosafe.vehiclesAndAssets.vaResponces.SubMenu> = ArrayList()
     var onItemClick: ((List<com.twobvt.gosafe.vehiclesAndAssets.vaResponces.SubMenu>) -> Unit)? = null
 
-   var viewModel: VehicleSelectionViewModel =VehicleSelectionViewModel()
+    private  var mapRepository: MapRepository = MapRepository()
 
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -31,6 +28,12 @@ open class VehicleAdaptor :
                 onItemClick?.invoke(subMenuList)
 
                 println("Item clicked $adapterPosition")
+                mapRepository.sendVehicles(subMenuList[adapterPosition])
+                itemView.context.startActivity(Intent(itemView.context, MapScreen::class.java))
+
+//                val intent = Intent(itemView.context,MapScreen::class.java);
+//                intent.putExtra("itemName", userName)
+//                itemView.context.startActivity(intent);
 
             }
 
@@ -38,19 +41,9 @@ open class VehicleAdaptor :
                 Toast.makeText(v.context, "Position is $adapterPosition", Toast.LENGTH_SHORT).show()
 
 
-                itemView.checkbox_main_grouped_ticket.visible(true)
-                itemView.checkbox_main_grouped_ticket.isChecked=true
-
-                viewModel.addItemToList(subMenuList[adapterPosition])
-
                 false
             })
 
-            itemView.checkbox_main_grouped_ticket.setOnClickListener{
-                itemView.checkbox_main_grouped_ticket.isChecked=false
-                itemView.checkbox_main_grouped_ticket.visible(false)
-
-            }
 
         }
 
