@@ -43,8 +43,6 @@ import com.twobvt.gosafe.vehiclesAndAssets.ui.vehiclesAndAssetsScreen.VehiclesAn
 import kotlinx.android.synthetic.main.layout_dashboard_home_view.*
 import kotlin.random.Random
 import com.faskn.lib.PieChart as faskn
-
-
 //import com.github.mikephil.charting.charts.PieChart
 
 
@@ -56,8 +54,6 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
     private lateinit var tinyDB : TinyDB
     private lateinit var drawerToggle: ActionBarDrawerToggle
     private lateinit var toolbar: Toolbar
-
-
 
     private lateinit var mpPieChart: PieChart
     private val tvX: TextView? = null
@@ -82,13 +78,6 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
         allPieCharts()
         // bottom list item onVehiclesLitItemClicked function
         onVehiclesLitItemClicked(applicationContext)
-
-
-
-
-
-
-
 
 
     }
@@ -155,7 +144,6 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.dashboard_screen, menu)
 
-
         return true
     }
 
@@ -163,7 +151,6 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
     private  fun allPieCharts(){
 
         mpPieChartMain()
-
        /// mainPieChart()
         alarmPieChart()
         movingPieChart()
@@ -176,7 +163,17 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
     fun mpPieChartMain(){
 
-
+        mpPieChart.description.isEnabled = false
+        mpPieChart.holeRadius = 75f
+        mpPieChart.transparentCircleRadius = 0f
+        mpPieChart.setHoleColor(Color.TRANSPARENT)
+        mpPieChart.legend.isEnabled = false
+        mpPieChart.isRotationEnabled = false
+        mpPieChart.setTouchEnabled(true)
+    //   mpPieChart.maxAngle = 270f
+//        mpPieChart.rotation = -135f
+//        mpPieChart.animateX(400)
+        mpPieChart.setDrawRoundedSlices(true)
 
         mpPieChart.setUsePercentValues(true)
         mpPieChart.description.isEnabled = false
@@ -193,7 +190,7 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
         mpPieChart.setTransparentCircleColor(Color.WHITE)
         mpPieChart.setTransparentCircleAlpha(110)
 
-        mpPieChart.holeRadius = 58f
+        mpPieChart.holeRadius = 74f
         mpPieChart.transparentCircleRadius = 61f
 
         mpPieChart.setDrawCenterText(true)
@@ -205,18 +202,8 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
         mpPieChart.isHighlightPerTapEnabled = true
         mpPieChart.circleBox.isEmpty
 
-        // chart.setUnit(" €");
-        // chart.setDrawUnitsInChart(true);
-
-        // add a selection listener
-
-        // chart.setUnit(" €");
-        // chart.setDrawUnitsInChart(true);
-
         // add a selection listener
         mpPieChart.setOnChartValueSelectedListener(this)
-
-
 
         mpPieChart.animateY(2500, Easing.EaseInOutQuad)
         mpPieChart.spin(2000, 0f, 360F, Easing.EaseInOutQuad)
@@ -243,7 +230,6 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
         // setting data to pie chart
         setData(4,100f)
 
-
     }
 
     private fun generateCenterSpannableText(): SpannableString? {
@@ -256,7 +242,6 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
         s.setSpan(ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length - 14, s.length, 0)
         return s
     }
-
 
     private fun setData(count: Int, range: Float) {
         val entries: ArrayList<PieEntry> = ArrayList()
@@ -271,6 +256,7 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
         val dataSet = PieDataSet(entries, "Election Results")
         dataSet.setDrawIcons(false)
         dataSet.sliceSpace = 3f
+
         dataSet.iconsOffset = MPPointF(0f, 40f)
         dataSet.selectionShift = 5f
 
@@ -298,6 +284,7 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
         data.setValueTextColor(Color.WHITE)
        // data.setValueTypeface(tfLight)
         mpPieChart.setData(data)
+
 
         // undo all highlights
         mpPieChart.highlightValues(null)
@@ -380,14 +367,12 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
             sliceWidth { 8f }
             sliceStartPoint { 3f }
 
-
             clickListener { angle, index ->
 
             }
         }
 
         pie_chart_alarm.setPieChart(pieChartDSL)
-
     }
 
     private fun alarmPieChartSlices(): ArrayList<Slice> {
@@ -396,15 +381,12 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
                 Random.nextInt(0, 1000).toFloat(),
                 R.color.red,
                 "Google"
-
-
             ),
             Slice(
                 Random.nextInt(0, 1000).toFloat(),
                 R.color.white,
                 "Google"
             ),
-
             )
     }
 
@@ -420,7 +402,6 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
             slices { movingPieChartSlices() }
             sliceWidth { 8f }
             sliceStartPoint { 3f }
-
 
             clickListener { angle, index ->
 
@@ -613,7 +594,6 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
             )
     }
 
-
     private fun onVehiclesLitItemClicked(  context: Context ){
 
         binding.appBarDashboardScreen.vehiclesCardViewListItem.setOnClickListener{
@@ -622,7 +602,6 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
         }
     }
-
 
     private fun logoutUser() {
 

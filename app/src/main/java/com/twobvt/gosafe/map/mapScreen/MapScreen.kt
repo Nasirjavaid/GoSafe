@@ -30,8 +30,8 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
     private var lat :Double = 0.0
     private var lng :Double = 0.0
     private var myMarker: Marker? = null
-   private lateinit var subBottomSheetDialogForMapSettingsResetOdometerOne : BottomSheetDialog
-   private lateinit var subBottomSheetDialogForMapSettingsResetOdometerTwo : BottomSheetDialog
+    private lateinit var subBottomSheetDialogForMapSettingsResetOdometerOne : BottomSheetDialog
+    private lateinit var subBottomSheetDialogForMapSettingsResetOdometerTwo : BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,8 +63,6 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
 
     }
-
-
 
     private fun loadMapFragment()
     {
@@ -177,8 +175,6 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
         }
 
     }
-
-
     private fun showBottomSheetDialogForMapHistoryViewTypeInfo() {
 
         val bottomSheetDialog = BottomSheetDialog(this)
@@ -544,7 +540,7 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
 
 
-        bottomSheetDialog.setContentView(com.twobvt.gosafe.R.layout.bottom_sheet_for_map_screen_one)
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_for_map_screen_one)
         val showLessViewButton = bottomSheetDialog.findViewById<Button>(R.id.show_less_button)
         val showMoreViewButton = bottomSheetDialog.findViewById<Button>(R.id.show_more_button)
         val bottomPortionLayout = bottomSheetDialog.findViewById<LinearLayout>(R.id.bottom_portion_layout)

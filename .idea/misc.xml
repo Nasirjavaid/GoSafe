@@ -11,9 +11,11 @@
         <entry key="app/src/main/res/drawable/button_bg.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/drawable/check_box_background_selector_main_grouped_ticket.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/drawable/circuler_shape_for_vehicles_main_layout_ticket.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/drawable/colored_bottom_sheet_bg.xml" value="0.24739583333333334" />
         <entry key="app/src/main/res/drawable/fab_info_icon.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/drawable/fab_location_pin.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/drawable/fab_nav.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/drawable/info_icon.xml" value="0.24739583333333334" />
         <entry key="app/src/main/res/drawable/layout_bg.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/drawable/map_1x_icon.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/map_alarm_icon.xml" value="0.25885416666666666" />
@@ -25,7 +27,9 @@
         <entry key="app/src/main/res/drawable/radio_button_fill_for_grouped_ticket_main.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/drawable/radio_button_for_grouped_ticket_main.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/drawable/send_button_settings_bottom_sheet.xml" value="0.22777777777777777" />
+        <entry key="app/src/main/res/layout/activity_dashboard_screen.xml" value="0.24365942028985507" />
         <entry key="app/src/main/res/layout/activity_login_screen.xml" value="0.23385416666666667" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15806159420289856" />
         <entry key="app/src/main/res/layout/activity_map_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.18885869565217392" />
         <entry key="app/src/main/res/layout/activity_vehicles_and_assets_screen.xml" value="0.23385416666666667" />
@@ -36,11 +40,12 @@
         <entry key="app/src/main/res/layout/fragment_assets.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/layout/fragment_vehicles.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/layout/grouped_main_ticket.xml" value="0.4783683559950556" />
+        <entry key="app/src/main/res/layout/layout_dashboard_home_view.xml" value="0.16394927536231885" />
         <entry key="app/src/main/res/layout/map_control_subsheet_send_on_off_output.xml" value="0.15443840579710144" />
         <entry key="app/src/main/res/layout/map_control_subsheet_send_on_off_subsheet_send_take_picture.xml" value="0.16168478260869565" />
         <entry key="app/src/main/res/layout/map_controls_bottom_sheet.xml" value="0.25" />
         <entry key="app/src/main/res/layout/map_history_bottom_sheet.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/map_history_sub_sheet_one.xml" value="0.17028985507246377" />
+        <entry key="app/src/main/res/layout/map_history_sub_sheet_one.xml" value="0.375" />
         <entry key="app/src/main/res/layout/map_history_view_type_sub_sheet_info.xml" value="0.335" />
         <entry key="app/src/main/res/layout/map_settings_bottom_sheet.xml" value="0.335" />
         <entry key="app/src/main/res/layout/map_settings_sub_sheet_odometer_one.xml" value="0.21829710144927536" />

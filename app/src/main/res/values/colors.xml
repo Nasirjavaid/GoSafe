@@ -34,6 +34,8 @@
     <color name="background_grey_two">#eeeced</color>
     <color name="background_grey_one">#FAFAFA</color>
     <color name="dashboard_card_background_grey">#e7e7e7</color>
+    <color name="list_item_color">#f1c97e</color>
+    <color name="list_item_color_two">#e58f7a</color>
 
     <color name="text_gray">#4E4E4E</color>
 

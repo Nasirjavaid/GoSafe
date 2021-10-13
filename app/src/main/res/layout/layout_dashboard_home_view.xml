@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -25,8 +24,8 @@
         android:background="@color/dashboard_card_background_grey"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <FrameLayout
             android:background="@color/dashboard_card_background_grey"
             android:layout_width="match_parent"
@@ -82,8 +81,6 @@
                                     android:textColor="@color/app_default_color_secondary"
                                     android:gravity="start" />
 
-
-
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_marginTop="35dp"
@@ -106,9 +103,9 @@
                                         android:id="@+id/chart1"
                                         android:layout_width="match_parent"
                                         android:layout_height="350dp"
-
                                         android:layout_centerVertical="true"
                                         android:layout_centerHorizontal="true"
+
                                         />
 
 <!--                                    <com.faskn.lib.ClickablePieChart-->
@@ -173,6 +170,7 @@
                                                 app:centerColor="@color/dashboard_card_background_grey"
                                                 app:showPercentage="true"
                                                 app:showPopup="true" />
+
                                         </RelativeLayout>
 
 
@@ -190,6 +188,7 @@
                                             android:textSize="@dimen/pie_text_size"
                                             android:text="Alarm"
                                             ></TextView>
+
                                         </LinearLayout>
 
 <!--  pie chart moving cars-->
@@ -492,12 +491,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="15dp"
-
-
                                     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
-
 
                                     <androidx.cardview.widget.CardView
                                         android:layout_width="wrap_content"
@@ -522,40 +516,38 @@
                                     </androidx.cardview.widget.CardView>
 
 
-
-
                                     <androidx.cardview.widget.CardView
                                         android:id="@+id/vehicles_cardView_list_item"
                                         android:layout_width="match_parent"
-                                        android:layout_marginRight="13.5dp"
-                                        android:layout_marginTop="8dp"
-                                        android:layout_marginBottom="8dp"
+                                        android:layout_height="wrap_content"
                                         android:layout_marginLeft="8dp"
-                                        android:translationX="10dp"
-                                        android:elevation="0dp"
-                                        app:cardCornerRadius="8dp"
-                                        app:contentPadding="13dp"
+                                        android:layout_marginTop="8dp"
+                                        android:layout_marginRight="13.5dp"
+                                        android:layout_marginBottom="8dp"
                                         android:background="@color/white"
-                                        android:layout_height="wrap_content">
+                                        android:elevation="0dp"
+                                        android:translationX="10dp"
+                                        app:cardCornerRadius="8dp"
+                                        app:contentPadding="13dp">
 
 
                                         <RelativeLayout
                                             android:layout_width="wrap_content"
-                                            android:translationX="50dp"
-                                            android:layout_height="wrap_content">
+                                            android:layout_height="wrap_content"
+                                            android:translationX="50dp">
 
 
                                             <LinearLayout
 
                                                 android:layout_width="wrap_content"
-                                                android:orientation="horizontal"
-                                                android:layout_height="wrap_content">
+                                                android:layout_height="wrap_content"
+                                                android:orientation="horizontal">
 
 
                                                 <LinearLayout
                                                     android:layout_width="match_parent"
-                                                    android:orientation="vertical"
-                                                    android:layout_height="wrap_content">
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical">
 
                                                     <TextView
                                                         android:layout_width="wrap_content"
@@ -565,29 +557,27 @@
                                                         android:textSize="@dimen/headin_font_size"
 
                                                         ></TextView>
+
                                                     <TextView
                                                         android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
                                                         android:layout_marginTop="1dp"
-                                                        android:layout_height="wrap_content"
                                                         android:text="Click here to open vehicles list"
-                                                        android:textSize="@dimen/sub_heading_font_siz"
-                                                        ></TextView>
+                                                        android:textSize="@dimen/sub_heading_font_siz"></TextView>
+
                                                     <TextView
                                                         android:layout_width="wrap_content"
                                                         android:layout_height="wrap_content"
                                                         android:text="Click here to open vehicles list"
-                                                        android:textSize="@dimen/sub_heading_font_siz"
-                                                        ></TextView>
+                                                        android:textSize="@dimen/sub_heading_font_siz"></TextView>
 
                                                 </LinearLayout>
-
 
                                             </LinearLayout>
 
                                         </RelativeLayout>
 
                                     </androidx.cardview.widget.CardView>
-
 
                                 </RelativeLayout>
 
@@ -598,11 +588,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="0dp"
-
-
                                     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
 
 
                                     <androidx.cardview.widget.CardView
@@ -736,8 +722,6 @@
                                     </androidx.cardview.widget.CardView>
 
 
-
-
                                     <androidx.cardview.widget.CardView
                                         android:id="@+id/main_card_item_list"
                                         android:layout_width="match_parent"
@@ -789,11 +773,214 @@
                                                     <TextView
                                                         android:layout_width="wrap_content"
                                                         android:layout_height="wrap_content"
-
-
                                                         android:text="Click here to open vehicles list"
                                                         android:textSize="@dimen/sub_heading_font_siz"
                                                         ></TextView>
+
+                                                </LinearLayout>
+
+                                            </LinearLayout>
+
+                                        </RelativeLayout>
+
+                                    </androidx.cardview.widget.CardView>
+
+
+                                </RelativeLayout>
+
+                                <!--Vehicle list item card four-->
+
+                                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="wrap_content"
+                                        app:contentPadding="14dp"
+                                        android:elevation="0dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:backgroundTint="@color/list_item_color"
+                                        app:cardCornerRadius="8dp"
+                                        android:translationY="15.3dp"
+                                        android:translationZ="90dp"
+                                        android:translationX="-6dp"
+                                        android:layout_height="wrap_content">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/pie_center_icon_width"
+                                            android:layout_height="@dimen/pie_center_icon_height"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_centerVertical="true"
+                                            android:src="@drawable/dashboard_geofence_icon"
+                                            android:translationZ="90dp"></ImageView>
+
+                                    </androidx.cardview.widget.CardView>
+
+
+                                    <androidx.cardview.widget.CardView
+                                        android:id="@+id/main_card_item_list_four"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:layout_marginRight="13.5dp"
+                                        android:layout_marginBottom="8dp"
+                                        android:background="@color/white"
+                                        android:elevation="0dp"
+                                        android:translationX="10dp"
+                                        app:cardCornerRadius="8dp"
+                                        app:contentPadding="13dp">
+
+
+                                        <RelativeLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:translationX="50dp">
+
+
+                                            <LinearLayout
+
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="horizontal">
+
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="Geofence"
+                                                        android:textColor="@color/app_default_color"
+                                                        android:textSize="@dimen/headin_font_size"
+
+                                                        ></TextView>
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginTop="1dp"
+                                                        android:text="Click here to open vehicles list"
+                                                        android:textSize="@dimen/sub_heading_font_siz"></TextView>
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+
+
+                                                        android:text="Click here to open vehicles list"
+                                                        android:textSize="@dimen/sub_heading_font_siz"></TextView>
+
+                                                </LinearLayout>
+
+
+                                            </LinearLayout>
+
+                                        </RelativeLayout>
+
+                                    </androidx.cardview.widget.CardView>
+
+
+                                </RelativeLayout>
+
+
+
+
+                                <!--Vehicle list item card five-->
+
+                                <RelativeLayout
+                                    xmlns:android="http://schemas.android.com/apk/res/android"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="wrap_content"
+                                        app:contentPadding="14dp"
+                                        android:elevation="0dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:backgroundTint="@color/list_item_color_two"
+                                        app:cardCornerRadius="8dp"
+                                        android:translationY="15.3dp"
+                                        android:translationZ="90dp"
+                                        android:translationX="-6dp"
+                                        android:layout_height="wrap_content">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/pie_center_icon_width"
+                                            android:layout_height="@dimen/pie_center_icon_height"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_centerVertical="true"
+                                            android:src="@drawable/dashboard_route_daviation_icon"
+                                            android:translationZ="90dp"></ImageView>
+
+                                    </androidx.cardview.widget.CardView>
+
+
+                                    <androidx.cardview.widget.CardView
+                                        android:id="@+id/main_card_item_list_five"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:layout_marginRight="13.5dp"
+                                        android:layout_marginBottom="8dp"
+                                        android:background="@color/white"
+                                        android:elevation="0dp"
+                                        android:translationX="10dp"
+                                        app:cardCornerRadius="8dp"
+                                        app:contentPadding="13dp">
+
+
+                                        <RelativeLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:translationX="50dp">
+
+
+                                            <LinearLayout
+
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="horizontal">
+
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="Route Deviation"
+                                                        android:textColor="@color/app_default_color"
+                                                        android:textSize="@dimen/headin_font_size"
+
+                                                        ></TextView>
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginTop="1dp"
+                                                        android:text="Click here to open vehicles list"
+                                                        android:textSize="@dimen/sub_heading_font_siz"></TextView>
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+
+
+                                                        android:text="Click here to open vehicles list"
+                                                        android:textSize="@dimen/sub_heading_font_siz"></TextView>
 
                                                 </LinearLayout>
 
@@ -829,15 +1016,12 @@
                                         android:scaleType="fitXY"
                                         />
                                 </androidx.cardview.widget.CardView>
-
-
                             </LinearLayout>
-
-
 
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
