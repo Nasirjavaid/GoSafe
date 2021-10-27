@@ -8,6 +8,14 @@
         android:icon="@drawable/ic_baseline_settings_24"
         app:showAsAction="always" />
 
+
+    <item
+        android:id="@+id/action_systemIndicator"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        android:icon="@drawable/alert_icon"
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/j_icon"
         android:orderInCategory="100"
