@@ -1,6 +1,7 @@
 package com.twobvt.gosafe.map.mapScreen
 
 import android.content.DialogInterface.OnShowListener
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.transition.Slide
@@ -18,6 +19,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.twobvt.gosafe.R
 import com.twobvt.gosafe.base.BaseActivity
 import com.twobvt.gosafe.databinding.ActivityMapScreenBinding
+import com.twobvt.gosafe.historyReplay.HistoryReplayActivity
 import com.twobvt.gosafe.map.mapRepository.MapRepository
 import com.twobvt.gosafe.map.mapViewModel.MapViewModel
 import kotlinx.android.synthetic.main.activity_map_screen.*
@@ -27,6 +29,7 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
 
     private  var  googleMap :GoogleMap? = null
+    private lateinit var  markingOptions :MarkerOptions
     private var lat :Double = 0.0
     private var lng :Double = 0.0
     private var myMarker: Marker? = null
@@ -39,8 +42,9 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
         //Toolbar setup
         val toolbar: Toolbar = binding.newToolbar
-        toolbar.setTitle("")
+//        toolbar.setTitle("")
         setSupportActionBar(toolbar)
+
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
 
@@ -215,12 +219,17 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
             bottomSheet.background = null
 
         })
+//        googleMap?.clear()
+//        markingOptions = MarkerOptions().position(LatLng())
+//        googleMap?.addMarker(markingOptions)
+
 
 
 
         bottomSheetDialog.setContentView(R.layout.map_history_sub_sheet_one)
         val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
         val infoIcon = bottomSheetDialog.findViewById<ImageView>(R.id.map_view_type_info_icon)
+//        val infoIcon = bottomSheetDialog.findViewById<ImageView>(R.id.map_view_type_info_icon)
 
         //close button
         btnCloseBottomSheetTop?.setOnClickListener {
@@ -269,7 +278,11 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
         //view type button
         viewType?.setOnClickListener {
             bottomSheetDialog.cancel()
-            showBottomSheetDialogForMapHistoryViewTypeOne()
+            val intent = Intent(this, HistoryReplayActivity::class.java)
+
+            startActivity(intent)
+
+//            showBottomSheetDialogForMapHistoryViewTypeOne()
         }
         //close button
         btnCloseBottomSheetTop?.setOnClickListener {

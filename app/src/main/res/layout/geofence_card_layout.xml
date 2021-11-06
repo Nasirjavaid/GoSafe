@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="4dp"
+
+    android:layout_width="match_parent">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="7dp"
+        >
+
+
+
+        <CheckBox
+            android:id="@+id/checkbox_main_grouped_ticket"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="gone"
+            android:layout_marginLeft="4dp"
+            android:button="@drawable/check_box_background_selector_main_grouped_ticket"
+            android:gravity="center"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/geofence_main_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="2dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:cropToPadding="true"
+                    android:layout_marginTop="7dp"
+                    android:src="@drawable/map_image"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+<!--                <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                    android:id="@+id/floating_corner_main_layout_ticket"-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_alignRight="@+id/vehicle_image_main_layout_ticket"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:cropToPadding="true"-->
+<!--                    android:paddingRight="3dp"-->
+<!--                    android:src="@drawable/MapImage"-->
+<!--                    android:translationX="12dp"-->
+<!--                    android:translationY="-2dp"-->
+<!--                    app:civ_border_color="@color/app_default_color"-->
+<!--                    app:civ_border_width="1dp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/vehicle_image_main_layout_ticket"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/vehicle_image_main_layout_ticket"-->
+<!--                    app:layout_constraintVertical_bias="0.0" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="5dp"
+
+                android:orientation="horizontal"
+                >
+<!--                <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                    android:id="@+id/geofence_shape"-->
+<!--                    android:layout_width="15dp"-->
+<!--                    android:layout_height="15dp"-->
+
+
+
+
+<!--                    android:src="@drawable/polygone_geofence_shape"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+                <ImageView
+                    android:id="@+id/geofence_shape"
+                    android:layout_width="15dp"
+                                 android:layout_height="15dp"
+
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/polygone_geofence_shape" />
+
+
+                <!--                <TextView-->
+
+<!--                    android:id="@+id/speed"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:paddingVertical="1dp"-->
+<!--                    android:text="s"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="12dp"-->
+<!--                    ></TextView>-->
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+
+
+
+
+                <TextView
+                    android:id="@+id/device_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="20dp"
+                    android:text="Model Town GeoFence"
+                    android:textColor="@color/app_default_color"
+                    android:textSize="14dp"
+                    ></TextView>
+
+
+
+
+
+
+
+
+                <TextView
+                    android:id="@+id/phone_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 January 2021"
+                    android:layout_marginTop="3dp"
+                    android:textSize="12dp"
+                    ></TextView>
+
+
+
+
+
+                <TextView
+                    android:id="@+id/vehicle_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_marginTop="2dp"
+                    android:text="Lorum Ipsum is simply Dummy Text of Printing"
+                    android:textSize="12dp"
+                    ></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:background="@color/grey"
+        android:layout_height="0.3dp"></View>
+
+    >
+
+</LinearLayout>

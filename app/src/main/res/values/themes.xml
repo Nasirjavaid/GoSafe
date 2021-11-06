@@ -103,6 +103,7 @@
         <item name="actionMenuTextColor">@color/app_default_color</item>
         <item name="android:actionMenuTextColor">@color/app_default_color</item>
         <item name="android:text"></item>
+
     </style>
 
 

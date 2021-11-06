@@ -30,4 +30,5 @@
     </string>
     <string name="general_information">General Information</string>
     <string name="sensors_information">Sensors Information</string>
+    <string name="title_activity_test_maps">Map</string>
 </resources>
