@@ -17,8 +17,8 @@ import kotlinx.android.synthetic.main.grouped_main_ticket.view.*
 open class IndicatorAdapter :
     RecyclerView.Adapter<IndicatorAdapter.DataViewHolder>()  {
 
-    var indicatorList: List<DummyModel> = ArrayList()
-    var onItemClick: ((List<DummyModel>) -> Unit)? = null
+    var indicatorList: List<com.twobvt.gosafe.systemIndicatorScreen.indicatorResponses.Data> = ArrayList()
+    var onItemClick: ((List<com.twobvt.gosafe.systemIndicatorScreen.indicatorResponses.Data>) -> Unit)? = null
 
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -46,14 +46,20 @@ open class IndicatorAdapter :
 
         }
 
-        fun bind(result: List<DummyModel>) {
+        fun bind(result: List<com.twobvt.gosafe.systemIndicatorScreen.indicatorResponses.Data>) {
 
 
-            if(result.get(adapterPosition).alertName== null)
+            if(result.get(adapterPosition).veh_reg_no == null)
             {
                 itemView.device_name.text=="N/A"
             }else{
-                itemView.device_name.text = result.get(adapterPosition).alertName
+                itemView.device_name.text = result.get(adapterPosition).veh_reg_no
+            }
+            if(result.get(adapterPosition).device_id == null)
+            {
+                itemView.phone_number.text=="N/A"
+            }else{
+                itemView.phone_number.text = result.get(adapterPosition).device_id
             }
 
 //            if(result.get(adapterPosition).device_id.toString()== null)
@@ -86,7 +92,7 @@ open class IndicatorAdapter :
     override fun getItemCount(): Int = indicatorList.size
 
 
-    fun addData(list: List<DummyModel>) {
+    fun addData(list: List<com.twobvt.gosafe.systemIndicatorScreen.indicatorResponses.Data>) {
         indicatorList = list
         notifyDataSetChanged()
     }

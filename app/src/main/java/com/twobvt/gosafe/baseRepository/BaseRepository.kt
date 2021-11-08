@@ -20,7 +20,7 @@ import retrofit2.HttpException
             } catch (throwable: Throwable){
                 print("api response")
                 print(throwable.message)
-//                print(apiCall.)
+                print("end")
                 when(throwable){
 
 

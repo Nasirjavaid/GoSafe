@@ -54,10 +54,6 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-
-
-
-
         loadMapFragment()
         fabInfoButton()
 
@@ -453,6 +449,106 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
         bottomSheetDialog.show()
 
     }
+    private fun showBottomSheetDialogForMapControlTakePicture() {
+
+        val bottomSheetDialog = BottomSheetDialog(this)
+
+        bottomSheetDialog.setOnShowListener(OnShowListener { dialog ->
+            val d = dialog as BottomSheetDialog
+            val bottomSheet = d.findViewById<View>(R.id.design_bottom_sheet) as FrameLayout?
+                ?: return@OnShowListener
+
+            bottomSheet.background = null
+
+        })
+
+
+
+
+
+
+        bottomSheetDialog.setContentView(R.layout.map_control_subsheet_take_picture)
+        val dropdownCameraChannel = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerCameraChannel)
+        val itemsCameraChannel = arrayOf("1","2","3","4","5","6","7","8","9","10")
+        val adapterCameraChannel = ArrayAdapter(this, R.layout.spinner_item, itemsCameraChannel)
+        if (dropdownCameraChannel != null) {
+            dropdownCameraChannel.adapter = adapterCameraChannel
+        }
+        val dropdownPictureQuality = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerPictureQuality)
+        val itemsPictureQuality = arrayOf("High","Medium","Low")
+        val adapterPictureQuality = ArrayAdapter(this, R.layout.spinner_item, itemsPictureQuality)
+        if (dropdownPictureQuality != null) {
+            dropdownPictureQuality.adapter = adapterPictureQuality
+        }
+        val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
+        val btntakePicture = bottomSheetDialog.findViewById<TextView>(R.id.btn_send_bottom)
+
+        //close button
+        btnCloseBottomSheetTop?.setOnClickListener {
+            bottomSheetDialog.cancel()
+        }
+        //close button and open next sheet
+        btntakePicture?.setOnClickListener {
+//            bottomSheetDialog.cancel()
+//            showBottomSheetDialogForMapControlOnOffSendTakePicture()
+
+        }
+
+        val btnCloseBottomSheetBottom = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_bottom)
+
+        //close button
+        btnCloseBottomSheetBottom?.setOnClickListener {
+            bottomSheetDialog.cancel()
+        }
+
+        bottomSheetDialog.show()
+
+    }
+    private fun showBottomSheetDialogForMapControlVoiceMonitor() {
+
+        val bottomSheetDialog = BottomSheetDialog(this)
+
+        bottomSheetDialog.setOnShowListener(OnShowListener { dialog ->
+            val d = dialog as BottomSheetDialog
+            val bottomSheet = d.findViewById<View>(R.id.design_bottom_sheet) as FrameLayout?
+                ?: return@OnShowListener
+
+            bottomSheet.background = null
+
+        })
+
+
+
+
+
+
+        bottomSheetDialog.setContentView(R.layout.map_control_subsheet_voice_monitor)
+
+
+        val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
+        val btnVoiceMonitor = bottomSheetDialog.findViewById<TextView>(R.id.btn_send_bottom)
+
+        //close button
+        btnCloseBottomSheetTop?.setOnClickListener {
+            bottomSheetDialog.cancel()
+        }
+        //close button and open next sheet
+        btnVoiceMonitor?.setOnClickListener {
+//            bottomSheetDialog.cancel()
+//            showBottomSheetDialogForMapControlOnOffSendTakePicture()
+
+        }
+
+        val btnCloseBottomSheetBottom = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_bottom)
+
+        //close button
+        btnCloseBottomSheetBottom?.setOnClickListener {
+            bottomSheetDialog.cancel()
+        }
+
+        bottomSheetDialog.show()
+
+    }
     private fun showSubBottomSheetDialogForMapSettingsResetOdometerOne() {
 
         subBottomSheetDialogForMapSettingsResetOdometerOne = BottomSheetDialog(this)
@@ -585,11 +681,15 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
 
         bottomSheetDialog.setContentView(R.layout.map_controls_bottom_sheet)
-        val btnCloseBottomSheet = bottomSheetDialog.findViewById<Button>(R.id.btn_close_bottom_sheet)
+//        val btnCloseBottomSheet = bottomSheetDialog.findViewById<Button>(R.id.btn_close_bottom_sheet)
         val btnOnOff = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_output_on_off)
+        val btnTakePicture = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_take_picture)
+        val btnVoiceMonitor = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_voice_monitor)
+
+        val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
 
         //close button
-        btnCloseBottomSheet?.setOnClickListener {
+        btnCloseBottomSheetTop?.setOnClickListener {
             bottomSheetDialog.cancel()
         }
 
@@ -597,6 +697,13 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
             showBottomSheetDialogForMapControlSendOutPut()
         }
+        btnTakePicture?.setOnClickListener{
+            showBottomSheetDialogForMapControlTakePicture()
+        }
+        btnVoiceMonitor?.setOnClickListener{
+            showBottomSheetDialogForMapControlVoiceMonitor()
+        }
+//
 
         bottomSheetDialog.show()
 

@@ -20,7 +20,7 @@ open class IndicatorViewModel ( private val  indicatorRepository: IndicatorRepos
 
     fun getSystemIndicatorList()  = viewModelScope.launch {
         _indicatorList.value = Resource.Loading
-        _indicatorList.value = indicatorRepository.getSystemIndicator();
+        _indicatorList.value = indicatorRepository.getSystemIndicatorsList("351535056021134","01","90");
 
     }
 

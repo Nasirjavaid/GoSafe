@@ -1,22 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bottom_sheet_bg"
     android:id="@+id/map_settings_bottom_sheet"
+    android:paddingBottom="20dp"
     android:layout_height="match_parent">
 
+<!--    <android.support.v4.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
 
-    <TextView
-        android:layout_marginTop="12dp"
+
+
+
+
+<!--    <TextView-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Controls"-->
+<!--        android:textSize="22dp"-->
+<!--        android:textColor="@color/grey"-->
+<!--        ></TextView>-->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Controls"
-        android:textSize="22dp"
-        android:textColor="@color/grey"
-        ></TextView>
+        android:layout_marginTop="12dp"
+        android:weightSum="3"
+        android:paddingHorizontal="16dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:src="@drawable/go_safe_logo"></ImageView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Controls"
+                android:textColor="@color/app_default_color"
+                android:textFontWeight="900"
+                android:textSize="22dp"></TextView>
+
+
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/btn_cancel_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:gravity="right"
+            android:text="Cancel"
+            android:textColor="@color/green"
+            android:textSize="15dp"></TextView>
+    </RelativeLayout>
+
 
 
     <LinearLayout
@@ -97,6 +159,171 @@
 
 
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginVertical="5dp"
+        android:background="@color/semiGray"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="0.5dp"></View>
+    <LinearLayout
+        android:id="@+id/layout_take_picture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="8"
+        android:padding="3dp"
+        android:gravity="center"
+
+        android:layout_marginHorizontal="6dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1.0"
+            android:src="@drawable/map_cam_icon"
+            ></ImageView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5.5"
+            android:layout_marginLeft="4dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Take Picture"
+                android:textSize="@dimen/bottom_sheet_headings"
+                android:textColor="@color/app_default_color"
+                ></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Text description xyz"
+                android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                android:textColor="@color/grey"
+                ></TextView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/send_button"
+                ></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Con.."
+                android:textAllCaps="true"
+                android:textSize="@dimen/sub_heading_font_siz"
+                android:textColor="@color/green"
+                ></TextView>
+
+
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginVertical="5dp"
+        android:background="@color/semiGray"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="0.5dp"></View>
+
+    <LinearLayout
+        android:id="@+id/layout_voice_monitor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="8"
+        android:padding="3dp"
+        android:gravity="center"
+
+        android:layout_marginHorizontal="6dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1.0"
+            android:src="@drawable/map_feed_icon"
+            ></ImageView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5.5"
+            android:layout_marginLeft="4dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Voice Monitor"
+                android:textSize="@dimen/bottom_sheet_headings"
+                android:textColor="@color/app_default_color"
+                ></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Text description xyz"
+                android:textSize="@dimen/bottom_sheet_text_size_items_below"
+                android:textColor="@color/grey"
+                ></TextView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/send_button"
+                ></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Con.."
+                android:textAllCaps="true"
+                android:textSize="@dimen/sub_heading_font_siz"
+                android:textColor="@color/green"
+                ></TextView>
+
+
+        </LinearLayout>
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_marginVertical="5dp"
@@ -440,22 +667,23 @@
         </LinearLayout>
 
     </LinearLayout>
+<!--    </android.support.v4.widget.NestedScrollView>-->
 
 
-    <Button
-        android:id="@+id/btn_close_bottom_sheet"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:paddingHorizontal="8dp"
-        android:text="Cancel"
-        android:layout_marginTop="16dp"
-        android:layout_gravity="center"
-        android:textAllCaps="false"
-        android:layout_marginBottom="16dp"
-        android:textSize="18dp"
+<!--    <Button-->
+<!--        android:id="@+id/btn_close_bottom_sheet"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="52dp"-->
+<!--        android:paddingHorizontal="8dp"-->
+<!--        android:text="Cancel"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:textSize="18dp"-->
 
-        android:textColor="@color/white"
-        android:layout_marginHorizontal="8dp"
-        android:background="@drawable/bottom_sheet_button_bg"/>
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_marginHorizontal="8dp"-->
+<!--        android:background="@drawable/bottom_sheet_button_bg"/>-->
 
 </LinearLayout>

@@ -1,14 +1,14 @@
 package com.twobvt.gosafe.systemIndicatorScreen.indicatorResponses
 
 data class Data(
-    val unknownBooleanValue: Boolean,
+
     val AlarmDetail: String,
     val GPS: String,
-    val GPSTime: String,
+
     val ID: Int,
     val Location: String,
     val Mode: String,
-    val RecTime: String,
+
     val Speed: Double,
     val alarm: String,
     val alm_id: Int,

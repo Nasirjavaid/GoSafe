@@ -7,9 +7,9 @@ import com.twobvt.gosafe.systemIndicatorScreen.indicatorApi.IndicatorApi
 class IndicatorRepository( private  val api : IndicatorApi) : BaseRepository() {
 
 
-    suspend fun getSystemIndicator() = safeApiCall {
+    suspend fun getSystemIndicatorsList(deviceId:String,clusterId:String,vehicleId:String) = safeApiCall {
 
-        api.getSystemIndicator()
+        api.systemIndicatorsList(deviceId,clusterId,vehicleId)
 
     }
 }

@@ -244,6 +244,7 @@ class GeoFenceMapActivity : BaseActivity<GeofenceMapViewModel, ActivityGeoFenceM
         if(ContextCompat.checkSelfPermission(this,ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
         {
             googleMap.isMyLocationEnabled =  true
+
         }
         else
         {
