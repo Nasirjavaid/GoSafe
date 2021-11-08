@@ -29,75 +29,87 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+
             android:layout_marginHorizontal="10dp"
             android:orientation="vertical"
             >
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
 
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/vehicle_image_main_layout_ticket"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="2dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:cropToPadding="true"
-                    android:layout_marginTop="3dp"
-                    android:src="@drawable/alarm_car"
-                    app:civ_border_color="@color/app_default_color"
-                    app:civ_border_width="1dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+
+            <!--            <de.hdodenhof.circleimageview.CircleImageView-->
+            <!--                android:id="@+id/vehicle_image_main_layout_ticket"-->
+            <!--                android:layout_width="50dp"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:padding="2dp"-->
+            <!--                android:layout_marginHorizontal="8dp"-->
+            <!--                android:cropToPadding="true"-->
+            <!--                android:layout_marginTop="3dp"-->
+            <!--                android:src="@drawable/alarm_car"-->
+            <!--                app:civ_border_color="@color/app_default_color"-->
+            <!--                app:civ_border_width="1dp"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/floating_corner_main_layout_ticket"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignRight="@+id/vehicle_image_main_layout_ticket"
-                    android:layout_marginStart="16dp"
-                    android:cropToPadding="true"
-                    android:paddingRight="3dp"
-                    android:src="@drawable/moving_car"
-                    android:translationX="12dp"
-                    android:translationY="-2dp"
-                    app:civ_border_color="@color/app_default_color"
-                    app:civ_border_width="1dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/vehicle_image_main_layout_ticket"
-                    app:layout_constraintTop_toTopOf="@+id/vehicle_image_main_layout_ticket"
-                    app:layout_constraintVertical_bias="0.0" />
+            <!--            <de.hdodenhof.circleimageview.CircleImageView-->
+            <!--                android:id="@+id/floating_corner_main_layout_ticket"-->
+            <!--                android:layout_width="30dp"-->
+            <!--                android:layout_height="30dp"-->
+            <!--                android:layout_alignRight="@+id/vehicle_image_main_layout_ticket"-->
+            <!--                android:layout_marginStart="16dp"-->
+            <!--                android:cropToPadding="true"-->
+            <!--                android:paddingRight="3dp"-->
+            <!--                android:src="@drawable/moving_car"-->
+            <!--                android:translationX="12dp"-->
+            <!--                android:translationY="-2dp"-->
+            <!--                app:civ_border_color="@color/app_default_color"-->
+            <!--                app:civ_border_width="1dp"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="@+id/vehicle_image_main_layout_ticket"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/vehicle_image_main_layout_ticket"-->
+            <!--                app:layout_constraintVertical_bias="0.0" />-->
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/sedan" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:layout_gravity="bottom"
                 android:layout_marginHorizontal="5dp"
-                android:background="@color/app_default_color"
+                android:background="@color/transparent"
                 android:orientation="vertical">
 
-                <TextView
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="13dp"
 
-                    android:id="@+id/speed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingVertical="1dp"
-                    android:text="s"
-                    android:textColor="@color/white"
-                    android:textSize="12dp"
-                    ></TextView>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    android:src="@drawable/circle_vehicle"/>
+
 
             </LinearLayout>
+
+
 
         </LinearLayout>
 
@@ -105,6 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
+
             android:orientation="vertical">
 
 
@@ -119,42 +132,36 @@
                     android:id="@+id/device_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Devices 02"
+                    android:text="Device name "
                     android:textColor="@color/app_default_color"
                     android:textSize="16dp"
+                    android:textFontWeight="900"
                     ></TextView>
 
-                <LinearLayout
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/circuler_shape_for_vehicles_main_layout_ticket">
 
-                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="3dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
 
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/cell_icon"
-                    ></ImageView>
+                <!--        <ImageView-->
+                <!--            android:layout_width="14dp"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:src="@drawable/cell_icon"-->
+                <!--            ></ImageView>-->
 
                 <TextView
                     android:id="@+id/phone_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="092456789034"
+                    android:text="Just Now - 68 km/h"
                     android:layout_marginLeft="3dp"
-                    android:textSize="12dp"
+                    android:textSize="11dp"
                     ></TextView>
             </LinearLayout>
 
@@ -181,6 +188,7 @@
                     android:textSize="12dp"
                     ></TextView>
             </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
@@ -191,6 +199,13 @@
         android:background="@color/grey"
         android:layout_height="0.3dp"></View>
 
-   >
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/child_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_title" />
 
 </LinearLayout>

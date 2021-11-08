@@ -35,7 +35,7 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
         super.onCreate(savedInstanceState)
 
 // disable the night mode for the whole application
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+ AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
 
 

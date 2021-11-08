@@ -14,9 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GoSafe"
+        android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".systemIndicatorScreen.SytemIndicatorScreen"
+            android:name=".systemIndicatorScreen.ui.SystemIndicatorScreen"
             android:exported="true" />
         <activity
             android:name=".map.mapScreen.MapScreen"

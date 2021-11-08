@@ -1,6 +1,4 @@
 package com.twobvt.gosafe.dashboardScreen
-
-
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -13,6 +11,7 @@ import android.text.style.StyleSpan
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -39,11 +38,13 @@ import com.twobvt.gosafe.config.TinyDB
 import com.twobvt.gosafe.config.deleteAccessToken
 import com.twobvt.gosafe.databinding.ActivityDashboardScreenBinding
 import com.twobvt.gosafe.login.ui.LoginScreen
+import com.twobvt.gosafe.systemIndicatorScreen.ui.SystemIndicatorScreen
 import com.twobvt.gosafe.vehiclesAndAssets.ui.vehiclesAndAssetsScreen.VehiclesAndAssetsScreen
 import kotlinx.android.synthetic.main.layout_dashboard_home_view.*
+import java.lang.String
 import kotlin.random.Random
 import com.faskn.lib.PieChart as faskn
-//import com.github.mikephil.charting.charts.PieChart
+
 
 
 class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener ,
@@ -58,6 +59,9 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
     private lateinit var mpPieChart: PieChart
     private val tvX: TextView? = null
     private  var tvY:TextView? = null
+
+    var tvSystemIndicatorItemCount: TextView? = null
+    var systemIndicatorItemCount = 10
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,7 +97,6 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
         setSupportActionBar(toolbar)
         var  drawer = binding.drawerLayout
-
 
         drawerToggle = ActionBarDrawerToggle(
             this,
@@ -135,16 +138,46 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
                logoutUser()
            }
-
         }
         return true
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.dashboard_screen, menu)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_alert -> {
 
+                startActivity(Intent(this, SystemIndicatorScreen::class.java))
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.dashboard_screen, menu)
+        val menuItem = menu.findItem(R.id.action_alert)
+        val actionView = menuItem.actionView
+        tvSystemIndicatorItemCount = actionView.findViewById<View>(R.id.cart_badge) as TextView
+        setupBadge()
+        actionView.setOnClickListener { onOptionsItemSelected(menuItem) }
         return true
+    }
+
+
+    private fun setupBadge() {
+        if (tvSystemIndicatorItemCount != null) {
+            if (systemIndicatorItemCount === 0) {
+                if (tvSystemIndicatorItemCount!!.visibility!== View.GONE) {
+                    tvSystemIndicatorItemCount!!.visibility = View.GONE
+                }
+            } else {
+                tvSystemIndicatorItemCount!!.text = String.valueOf(Math.min(systemIndicatorItemCount, 99))
+                if (tvSystemIndicatorItemCount!!.visibility !== View.VISIBLE) {
+                    tvSystemIndicatorItemCount!!.visibility = View.VISIBLE
+                }
+            }
+        }
     }
 
 
@@ -161,7 +194,7 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
     }
 
 
-    fun mpPieChartMain(){
+    private fun mpPieChartMain(){
 
         mpPieChart.description.isEnabled = false
         mpPieChart.holeRadius = 75f
