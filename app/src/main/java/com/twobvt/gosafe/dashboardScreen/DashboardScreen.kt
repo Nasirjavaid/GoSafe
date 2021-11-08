@@ -15,9 +15,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -46,9 +44,12 @@ import com.twobvt.gosafe.databinding.ActivityDashboardScreenBinding
 import com.twobvt.gosafe.geofenceList.uiGeofenceList.uigeofencelist.GeoFenceListActivity
 import com.twobvt.gosafe.login.ui.LoginScreen
 import com.twobvt.gosafe.vehiclesAndAssets.ui.vehiclesAndAssetsScreen.VehiclesAndAssetsScreen
+import kotlinx.android.synthetic.main.bottom_sheet_geofence.*
 import kotlinx.android.synthetic.main.layout_dashboard_home_view.*
 import kotlin.random.Random
 import com.faskn.lib.PieChart as faskn
+
+
 //import com.github.mikephil.charting.charts.PieChart
 
 
@@ -64,7 +65,10 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
     private lateinit var mpPieChart: PieChart
     private val tvX: TextView? = null
     private  var tvY:TextView? = null
-
+    private lateinit var titleGf : String
+    private lateinit var typeGf : String
+    private lateinit var coordinateGf : String
+    private lateinit var differenceGf : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,7 +92,9 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
         onGeoFenceItemClick(applicationContext)
 
 
+
     }
+
 
     private fun setupToolbarIconsAndNaveView()
     {
@@ -645,6 +651,19 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
 
         bottomSheetDialog.setContentView(R.layout.bottom_sheet_geofence)
+        val dropdownCountry = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerCountry)
+        val itemsCountry = arrayOf("Pakistan", "Bangladesh")
+        val adapterCountry = ArrayAdapter(this, R.layout.spinner_item, itemsCountry)
+        if (dropdownCountry != null) {
+            dropdownCountry.adapter = adapterCountry
+        }
+        val dropdownCity = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerCity)
+        val itemsCity = arrayOf("Lahore", "Islamabad", "Karachi")
+        val adapterCity = ArrayAdapter(this, R.layout.spinner_item, itemsCity)
+        if (dropdownCity != null) {
+            dropdownCity.adapter = adapterCity
+        }
+
         val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
         val viewType = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_map_history_view_type)
         val btnGoAhead = bottomSheetDialog.findViewById<TextView>(R.id.btn_search_bottom)
@@ -664,7 +683,34 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
             bottomSheetDialog.cancel()
         }
         btnGoAhead?.setOnClickListener {
-            startActivity(Intent(this, GeoFenceListActivity::class.java))
+            titleGf = bottomSheetDialog.title.text.toString()
+            typeGf = bottomSheetDialog.type.text.toString()
+            coordinateGf = bottomSheetDialog.coordinate.text.toString()
+                differenceGf = bottomSheetDialog.difference.text.toString()
+            when{
+                titleGf.isEmpty() -> {
+                    Toast.makeText(this, "Please Enter Title", Toast.LENGTH_SHORT).show()
+                }
+                typeGf.isEmpty() -> {
+                    Toast.makeText(this, "Please Enter Type", Toast.LENGTH_SHORT).show()
+                }
+                coordinateGf.isEmpty() -> {
+                    Toast.makeText(this, "Please Enter Coordinate", Toast.LENGTH_SHORT).show()
+                }
+                differenceGf.isEmpty() -> {
+                    Toast.makeText(this, "Please Enter Difference", Toast.LENGTH_SHORT).show()
+                }
+                titleGf.length > 20 -> {
+                    Toast.makeText(this, "Title Shouldn't be longer than 20 characters", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                else -> {
+                    startActivity(Intent(this, GeoFenceListActivity::class.java))
+                }
+
+            }
+
+
 //            print("tapiingggggggggggggggggggggggggggggg")
 
         }

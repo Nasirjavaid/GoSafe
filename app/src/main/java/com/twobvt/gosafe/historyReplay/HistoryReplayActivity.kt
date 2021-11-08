@@ -6,6 +6,7 @@ import android.os.Handler
 
 import android.os.SystemClock
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.Interpolator
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.widget.Toolbar
@@ -102,13 +103,13 @@ class HistoryReplayActivity : BaseActivity<HistoryReplayViewModel, ActivityHisto
 //
 //        }
     }
-    fun setAnimation(myMap: GoogleMap, directionPoint: List<LatLng?>, bitmap: Bitmap?) {
+    fun setAnimation(myMap: GoogleMap, directionPoint: List<LatLng?>) {
         val marker = myMap.addMarker(MarkerOptions()
-            .icon(BitmapDescriptorFactory.fromBitmap(bitmap))
             .position(directionPoint[0])
-            .flat(true))
-        myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(directionPoint[0], 10f))
-        animateMarker(myMap, marker, directionPoint, false)
+            .title("Marker in Sydney").snippet("My Current City"))
+
+        myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(directionPoint[0], 12f))
+//        animateMarker(myMap, marker, directionPoint, false)
     }
 
 
@@ -167,7 +168,7 @@ class HistoryReplayActivity : BaseActivity<HistoryReplayViewModel, ActivityHisto
 
         var  markerLocation : LatLng = LatLng(31.493861029421378,74.3631809419561)
         markingOptions = MarkerOptions().position(markerLocation).title("Marker in Sydney").snippet("My Current City")
-        googleMap.addMarker(markingOptions)
+//        googleMap.addMarker(markingOptions)
 //        val location = CameraUpdateFactory.newLatLngZoom(
 //            markerLocation, 15f)
 //        googleMap?.animateCamera(location)
@@ -185,7 +186,9 @@ class HistoryReplayActivity : BaseActivity<HistoryReplayViewModel, ActivityHisto
         myList.add(LatLng(lat+1.99, lng+1.90))
 
         myList.add(LatLng(lat, lng))
-        animateMarker(googleMap,googleMap.addMarker(markingOptions),myList,false)
+//        animateMarkerTest(googleMap.addMarker(markingOptions),LatLng(lat+1.99, lng+1.90),Linear())
+
+//        setAnimation(googleMap, myList)
        //Already present solution
 //        val options = PolylineOptions().width(5f).color(Color.BLUE).geodesic(true)
 //        myList.forEachIndexed { index, element ->
@@ -272,6 +275,49 @@ class HistoryReplayActivity : BaseActivity<HistoryReplayViewModel, ActivityHisto
     override fun onClick(v: View?) {
         TODO("Not yet implemented")
     }
+    interface LatlngInterPolator
+    {
+        fun interpolate(fraction: Float , a:LatLng,b:LatLng):LatLng
+    }
+    class Linear : LatlngInterPolator
+    {
+        override fun interpolate(fraction: Float, a: LatLng, b: LatLng): LatLng {
+            TODO("Not yet implemented")
+            val lat: Double = (b.latitude - a.latitude) * fraction + a.latitude
+            val lng: Double = (b.longitude - a.longitude) * fraction + a.longitude
+            return LatLng(lat,lng)
+        }
 
+    }
+    fun animateMarkerTest(marker: Marker,finalPosition:LatLng,latlngInterPolator: Linear){
+        val startpos : LatLng = marker.position
+        val handler =  Handler()
+        val start : Long = SystemClock.uptimeMillis()
+        val interpolator:AccelerateDecelerateInterpolator = AccelerateDecelerateInterpolator()
+        val durationms = 10000f
+        handler.post(object : Runnable{
+            var elapsed : Long = 0
+            var t = 0f
+            var v = 0f
+            override fun run() {
+                elapsed = SystemClock.uptimeMillis()-start
+                t = elapsed/durationms
+                v = interpolator.getInterpolation(t)
+                val newops : LatLng = latlngInterPolator.interpolate(v,startpos,finalPosition)
+                let{
+                    marker.position =  newops
+
+                }
+                if(t<1){
+                    handler.postDelayed(this,16)
+                }
+
+
+            }
+
+        })
+
+
+    }
 
 }

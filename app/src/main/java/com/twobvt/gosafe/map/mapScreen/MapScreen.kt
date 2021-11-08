@@ -1,5 +1,8 @@
 package com.twobvt.gosafe.map.mapScreen
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
+import android.content.Context
 import android.content.DialogInterface.OnShowListener
 import android.content.Intent
 import android.graphics.Color
@@ -23,6 +26,9 @@ import com.twobvt.gosafe.historyReplay.HistoryReplayActivity
 import com.twobvt.gosafe.map.mapRepository.MapRepository
 import com.twobvt.gosafe.map.mapViewModel.MapViewModel
 import kotlinx.android.synthetic.main.activity_map_screen.*
+import java.sql.Time
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapRepository>() , OnMapReadyCallback{
@@ -254,6 +260,7 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
     }
     private fun showBottomSheetDialogForMapHistory() {
 
+
         val bottomSheetDialog = BottomSheetDialog(this)
 
         bottomSheetDialog.setOnShowListener(OnShowListener { dialog ->
@@ -268,9 +275,29 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
 
         bottomSheetDialog.setContentView(R.layout.map_history_bottom_sheet)
+        val dropdownViewType = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerViewType)
+        val itemsViewType = arrayOf("Replay")
+        val adapterViewType = ArrayAdapter(this, R.layout.spinner_item, itemsViewType)
+        if (dropdownViewType != null) {
+            dropdownViewType.adapter = adapterViewType
+        }
+        val dropdownPeriodType = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerPeriodType)
+        val itemsPeriodType = arrayOf("Today", "Weekly", "Monthly","Custom Date")
+        val adapterPeriodType = ArrayAdapter(this, R.layout.spinner_item, itemsPeriodType)
+        if (dropdownPeriodType != null) {
+            dropdownPeriodType.adapter = adapterPeriodType
+        }
         val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
         val viewType = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_map_history_view_type)
+        val  edtTextStartDateSelect  = bottomSheetDialog.findViewById<EditText>(R.id.startDate)
+        val  edtTextEndDateSelect  = bottomSheetDialog.findViewById<EditText>(R.id.endDate)
+
         // val resetOdometer = bottomSheetDialog.findViewById<LinearLayout>(R.id.bottom_sheet_settings_layout_reset_odometer)
+//        btnStartDateSelect?.setOnClickListener {
+//
+//        }
+        edtTextStartDateSelect?.transformIntoDatePicker(this, "MM/dd/yyyy")
+        edtTextEndDateSelect?.transformIntoDatePicker(this, "MM/dd/yyyy")
 
 
 
@@ -305,6 +332,34 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
         bottomSheetDialog.show()
 
     }
+    fun EditText.transformIntoDatePicker(context: Context, format: String, maxDate: Date? = null) {
+        isFocusableInTouchMode = false
+        isClickable = true
+        isFocusable = false
+
+        val myCalendar = Calendar.getInstance()
+        val datePickerOnDataSetListener =
+            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                myCalendar.set(Calendar.YEAR, year)
+                myCalendar.set(Calendar.MONTH, monthOfYear)
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                val sdf = SimpleDateFormat(format, Locale.UK)
+                setText(sdf.format(myCalendar.time))
+            }
+
+        setOnClickListener {
+            DatePickerDialog(
+                context, datePickerOnDataSetListener, myCalendar
+                    .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH)
+            ).run {
+                maxDate?.time?.also { datePicker.maxDate = it }
+                show()
+            }
+        }
+    }
+
+
     private fun showBottomSheetDialogForMapControlOnOffSendTakePicture() {
 
         val bottomSheetDialog = BottomSheetDialog(this)
