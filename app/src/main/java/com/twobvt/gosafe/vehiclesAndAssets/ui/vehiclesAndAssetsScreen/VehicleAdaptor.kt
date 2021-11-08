@@ -1,5 +1,6 @@
 package com.twobvt.gosafe.vehiclesAndAssets.ui.vehiclesAndAssetsScreen
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnLongClickListener
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.twobvt.gosafe.R
 import com.twobvt.gosafe.map.mapRepository.MapRepository
+import com.twobvt.gosafe.map.mapScreen.MapScreen
 import com.twobvt.gosafe.vehiclesAndAssets.vaResponces.SubMenu
 import com.twobvt.packetparcer.PacketParser
 import kotlinx.android.synthetic.main.grouped_main_ticket.view.*
@@ -32,8 +34,8 @@ open class VehicleAdaptor :
 
                 println("Item clicked $adapterPosition")
                 print("List size of Sub Menu +++++++  = ${subMenuList[adapterPosition].SubMenu.size}")
-//                mapRepository.sendVehicles(subMenuList[adapterPosition])
-//                itemView.context.startActivity(Intent(itemView.context, MapScreen::class.java))
+                mapRepository.sendVehicles(subMenuList[adapterPosition])
+                itemView.context.startActivity(Intent(itemView.context, MapScreen::class.java))
 
 //                val intent = Intent(itemView.context,MapScreen::class.java);
 //                intent.putExtra("itemName", userName)

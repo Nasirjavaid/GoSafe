@@ -72,12 +72,8 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyA_gMZKEaQ4UFJl4-3s3-Dcfv_i-c56tdM" />
-            android:required="false" /> <!-- <meta-data -->
-        <!-- android:name="com.google.android.maps.v2.API_KEY" -->
-        <!-- android:value="AIzaSyA_gMZKEaQ4UFJl4-3s3-Dcfv_i-c56tdM" /> -->
+
+
         <receiver android:name=".geofenceMapScreen.GeofenceBroadcastReceiver" />
     </application>
 

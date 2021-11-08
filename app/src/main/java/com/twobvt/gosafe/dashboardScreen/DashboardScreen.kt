@@ -15,8 +15,6 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -49,7 +47,6 @@ import com.twobvt.gosafe.systemIndicatorScreen.ui.SystemIndicatorScreen
 import com.twobvt.gosafe.vehiclesAndAssets.ui.vehiclesAndAssetsScreen.VehiclesAndAssetsScreen
 import kotlinx.android.synthetic.main.bottom_sheet_geofence.*
 import kotlinx.android.synthetic.main.layout_dashboard_home_view.*
-import java.lang.String
 import kotlin.random.Random
 import com.faskn.lib.PieChart as faskn
 
@@ -179,7 +176,7 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
         menuInflater.inflate(R.menu.dashboard_screen, menu)
         val menuItem = menu.findItem(R.id.action_alert)
         val actionView = menuItem.actionView
-        tvSystemIndicatorItemCount = actionView.findViewById<View>(R.id.cart_badge) as TextView
+        tvSystemIndicatorItemCount = actionView.findViewById<TextView>(R.id.cart_badge)
         setupBadge()
         actionView.setOnClickListener { onOptionsItemSelected(menuItem) }
         return true
@@ -193,7 +190,7 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
                     tvSystemIndicatorItemCount!!.visibility = View.GONE
                 }
             } else {
-                tvSystemIndicatorItemCount!!.text = String.valueOf(Math.min(systemIndicatorItemCount, 99))
+                tvSystemIndicatorItemCount!!.text = Math.min(systemIndicatorItemCount, 99).toString()
                 if (tvSystemIndicatorItemCount!!.visibility !== View.VISIBLE) {
                     tvSystemIndicatorItemCount!!.visibility = View.VISIBLE
                 }
@@ -727,6 +724,9 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
             typeGf = bottomSheetDialog.type.text.toString()
             coordinateGf = bottomSheetDialog.coordinate.text.toString()
                 differenceGf = bottomSheetDialog.difference.text.toString()
+            if(titleGf.isEmpty()){
+                Toast.makeText(this, "Please Enter Title", Toast.LENGTH_SHORT).show()
+            }
             when{
                 titleGf.isEmpty() -> {
                     Toast.makeText(this, "Please Enter Title", Toast.LENGTH_SHORT).show()

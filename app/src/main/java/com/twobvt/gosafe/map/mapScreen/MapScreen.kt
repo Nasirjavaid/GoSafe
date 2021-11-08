@@ -31,6 +31,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
+
 class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapRepository>() , OnMapReadyCallback{
 
 
