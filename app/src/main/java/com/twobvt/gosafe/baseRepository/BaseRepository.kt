@@ -18,8 +18,12 @@ import retrofit2.HttpException
 
                Resource.Success( apiCall.invoke())
             } catch (throwable: Throwable){
-
+                print("api response")
+                print(throwable.message)
+//                print(apiCall.)
                 when(throwable){
+
+
 
                     is HttpException -> {
                         Resource.Failure(false,false,throwable.code(),throwable.response()?.errorBody())

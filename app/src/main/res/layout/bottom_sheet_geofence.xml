@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bottom_sheet_bg"
-    android:id="@+id/bottom_sheet_dialog_for_map_control_send_out_put"
+    android:id="@+id/bottom_sheet_geofence"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -34,7 +34,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="History"
+                android:text="Geofence"
                 android:textColor="@color/app_default_color"
                 android:textFontWeight="900"
                 android:textSize="22dp"></TextView>
@@ -54,7 +54,6 @@
             android:paddingTop="5dp"
             android:paddingRight="5dp"
             android:gravity="right"
-
             android:text="Cancel"
             android:textColor="@color/green"
             android:textSize="15dp"></TextView>
@@ -79,190 +78,7 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1.0"
-            android:src="@drawable/map_view_eye_icon"
-            ></ImageView>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4.5"
-            android:layout_marginLeft="4dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="View Type"
-                android:textSize="@dimen/bottom_sheet_headings"
-                android:textColor="@color/app_default_color"
-                ></TextView>
-
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_weight="2.5"
-            android:orientation="vertical">
-
-
-            <Spinner
-                android:id="@+id/simpleSpinnerViewType"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1.0"
-
-
-                android:spinnerMode="dropdown"/>
-<!--            <ImageView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_weight="1.0"-->
-<!--                android:src="@drawable/map_nav_icon"-->
-<!--                ></ImageView>-->
-
-            <!--            <TextView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-
-            <!--                android:text="Send"-->
-            <!--                android:textAllCaps="true"-->
-            <!--                android:textSize="@dimen/sub_heading_font_siz"-->
-            <!--                android:textColor="@color/green"-->
-            <!--                ></TextView>-->
-
-
-        </LinearLayout>
-    </LinearLayout>
-
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginVertical="5dp"
-        android:background="@color/semiGray"
-        android:layout_marginHorizontal="20dp"
-        android:layout_height="0.5dp"></View>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="8"
-        android:padding="3dp"
-        android:gravity="center"
-        android:layout_marginHorizontal="6dp"
-        android:layout_marginBottom="6dp"
-        android:orientation="horizontal">
-
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_weight="1.0"
-            android:src="@drawable/map_period_type_icon"
-            ></ImageView>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4.5"
-            android:layout_marginLeft="4dp"
-            android:orientation="vertical">
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Period Type"
-                android:textSize="@dimen/bottom_sheet_headings"
-                android:textColor="@color/app_default_color"
-                ></TextView>
-
-
-
-
-
-
-
-        </LinearLayout>
-
-
-
-
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_weight="2.5"
-            android:orientation="vertical">
-
-            <Spinner
-                android:id="@+id/simpleSpinnerPeriodType"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1.0"
-
-
-                android:spinnerMode="dropdown"/>
-
-
-<!--            <ImageView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_weight="1.0"-->
-<!--                android:src="@drawable/map_nav_icon"-->
-<!--                ></ImageView>-->
-
-            <!--            <TextView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:textAllCaps="true"-->
-            <!--                android:text="Send"-->
-            <!--                android:textSize="@dimen/sub_heading_font_siz"-->
-            <!--                android:textColor="@color/green"-->
-            <!--                ></TextView>-->
-
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginVertical="5dp"
-        android:background="@color/semiGray"
-        android:layout_marginHorizontal="20dp"
-        android:layout_height="0.5dp"></View>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="8"
-        android:padding="3dp"
-        android:gravity="center"
-        android:layout_marginHorizontal="6dp"
-        android:layout_marginBottom="6dp"
-        android:orientation="horizontal">
-
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_weight="1.0"
-            android:src="@drawable/map_start_date_icon"
+            android:src="@drawable/type_geofence"
             ></ImageView>
 
         <LinearLayout
@@ -273,14 +89,230 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/startDate"
+                android:id="@+id/type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="5.5"
                 android:backgroundTint="@color/transparent"
 
-                android:hint="Select Start Date"
-                android:inputType="date"
+                android:hint="Type"
+                android:inputType="textEmailAddress"
+
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="0dp"
+                android:textSize="@dimen/bottom_sheet_headings"
+                android:textColor="@color/app_default_color"
+                android:textColorHint="@color/app_default_color"
+                 />
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+
+<!--                android:text="Type"-->
+<!--                android:textSize="@dimen/bottom_sheet_headings"-->
+<!--                android:textColor="@color/app_default_color"-->
+<!--                ></TextView>-->
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:src="@drawable/map_nav_icon"
+                ></ImageView>
+
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+
+            <!--                android:text="Send"-->
+            <!--                android:textAllCaps="true"-->
+            <!--                android:textSize="@dimen/sub_heading_font_siz"-->
+            <!--                android:textColor="@color/green"-->
+            <!--                ></TextView>-->
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:background="@color/semiGray"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="0.5dp"></View>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="8"
+        android:padding="3dp"
+        android:gravity="center"
+        android:layout_marginHorizontal="6dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1.0"
+            android:src="@drawable/title_geofence"
+            ></ImageView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5.5"
+            android:layout_marginLeft="4dp"
+            android:orientation="vertical">
+
+
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Title(max:20)"-->
+<!--                android:textSize="@dimen/bottom_sheet_headings"-->
+<!--                android:textColor="@color/app_default_color"-->
+<!--                ></TextView>-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="5.5"
+                android:backgroundTint="@color/transparent"
+
+                android:hint="Title(max:20)"
+                android:inputType="text"
+
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="0dp"
+                android:textSize="@dimen/bottom_sheet_headings"
+                android:textColor="@color/app_default_color"
+                android:textColorHint="@color/app_default_color"
+                />
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:src="@drawable/map_nav_icon"
+                ></ImageView>
+
+
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:textAllCaps="true"-->
+            <!--                android:text="Send"-->
+            <!--                android:textSize="@dimen/sub_heading_font_siz"-->
+            <!--                android:textColor="@color/green"-->
+            <!--                ></TextView>-->
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+
+        android:background="@color/semiGray"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="0.5dp"></View>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="8"
+        android:padding="3dp"
+        android:gravity="center"
+        android:layout_marginHorizontal="6dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1.0"
+            android:src="@drawable/coordinate_geofence"
+            ></ImageView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5.5"
+            android:layout_marginLeft="4dp"
+            android:orientation="vertical">
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+
+<!--                android:text="Coordinate"-->
+<!--                android:textSize="@dimen/bottom_sheet_headings"-->
+<!--                android:textColor="@color/app_default_color"-->
+<!--                ></TextView>-->
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/coordinate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="5.5"
+                android:backgroundTint="@color/transparent"
+
+                android:hint="Coordinate"
+                android:inputType="text"
 
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
@@ -321,7 +353,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_marginVertical="5dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/semiGray"
         android:layout_marginHorizontal="20dp"
         android:layout_height="0.5dp"></View>
@@ -342,7 +374,7 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1.0"
-            android:src="@drawable/map_start_date_icon"
+            android:src="@drawable/diff_geofence"
             ></ImageView>
 
         <LinearLayout
@@ -352,15 +384,23 @@
             android:layout_marginLeft="4dp"
             android:orientation="vertical">
 
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+
+<!--                android:text="Difference"-->
+<!--                android:textSize="@dimen/bottom_sheet_headings"-->
+<!--                android:textColor="@color/app_default_color"-->
+<!--                ></TextView>-->
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/endDate"
+                android:id="@+id/difference"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="5.5"
                 android:backgroundTint="@color/transparent"
 
-                android:hint="Select End Date"
-                android:inputType="date"
+                android:hint="Difference"
+                android:inputType="text"
 
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
@@ -395,7 +435,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_marginVertical="5dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/semiGray"
         android:layout_marginHorizontal="20dp"
         android:layout_height="0.5dp"></View>
@@ -414,13 +454,13 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1.0"
-            android:src="@drawable/map_speed_icon"
+            android:src="@drawable/country_geofence"
             ></ImageView>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5.5"
+            android:layout_weight="4.5"
             android:layout_marginLeft="4dp"
             android:orientation="vertical">
 
@@ -428,7 +468,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Speed > 0 km"
+                android:text="Country"
                 android:textSize="@dimen/bottom_sheet_headings"
                 android:textColor="@color/app_default_color"
                 ></TextView>
@@ -441,22 +481,31 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_weight="1.5"
+            android:layout_weight="2.5"
             android:orientation="vertical">
 
-            <Switch
-                android:id="@+id/speed_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1.0"-->
+<!--                android:src="@drawable/map_nav_icon"-->
+<!--                ></ImageView>-->
+            <Spinner
+                android:id="@+id/simpleSpinnerCountry"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
 
-                />
+
+                android:spinnerMode="dropdown"/>
+
         </LinearLayout>
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_marginVertical="5dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/semiGray"
         android:layout_marginHorizontal="20dp"
         android:layout_height="0.5dp"></View>
@@ -475,13 +524,13 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1.0"
-            android:src="@drawable/map_show_alarm_trace_icon"
+            android:src="@drawable/city_geofence"
             ></ImageView>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5.5"
+            android:layout_weight="4.5"
             android:layout_marginLeft="4dp"
             android:orientation="vertical">
 
@@ -489,7 +538,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Show Alarm Trace"
+                android:text="City"
                 android:textSize="@dimen/bottom_sheet_headings"
                 android:textColor="@color/app_default_color"
                 ></TextView>
@@ -502,18 +551,34 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_weight="1.5"
+            android:layout_weight="2.5"
             android:orientation="vertical">
 
-            <Switch
-                android:id="@+id/show_alarm_trace_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1.0"-->
+<!--                android:src="@drawable/map_nav_icon"-->
+<!--                ></ImageView>-->
+            <Spinner
+                android:id="@+id/simpleSpinnerCity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
 
-                />
+
+                android:spinnerMode="dropdown"/>
+
         </LinearLayout>
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:background="@color/semiGray"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="0.5dp"></View>
 
 
     <LinearLayout
