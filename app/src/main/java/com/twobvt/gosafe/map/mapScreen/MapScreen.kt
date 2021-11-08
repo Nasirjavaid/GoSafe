@@ -289,6 +289,7 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
             dropdownPeriodType.adapter = adapterPeriodType
         }
         val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
+        val btnSearchBottomSheet = bottomSheetDialog.findViewById<TextView>(R.id.btn_search_bottom_map)
         val viewType = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_map_history_view_type)
         val  edtTextStartDateSelect  = bottomSheetDialog.findViewById<EditText>(R.id.startDate)
         val  edtTextEndDateSelect  = bottomSheetDialog.findViewById<EditText>(R.id.endDate)
@@ -302,16 +303,24 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
 
 
-
-        //view type button
-        viewType?.setOnClickListener {
+        //Search button
+        btnSearchBottomSheet?.setOnClickListener {
             bottomSheetDialog.cancel()
             val intent = Intent(this, HistoryReplayActivity::class.java)
 
             startActivity(intent)
 
-//            showBottomSheetDialogForMapHistoryViewTypeOne()
         }
+        //view type button
+
+//        viewType?.setOnClickListener {
+//            bottomSheetDialog.cancel()
+//            val intent = Intent(this, HistoryReplayActivity::class.java)
+//
+//            startActivity(intent)
+//
+////            showBottomSheetDialogForMapHistoryViewTypeOne()
+//        }
         //close button
         btnCloseBottomSheetTop?.setOnClickListener {
             bottomSheetDialog.cancel()
