@@ -16,6 +16,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoSafe"
         android:usesCleartextTraffic="true">
+<<<<<<< Updated upstream
+=======
+        <activity android:name=".historyReplay.HistoryReplayActivity"></activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA_gMZKEaQ4UFJl4-3s3-Dcfv_i-c56tdM" />
+
+        <activity android:name=".geofenceMapScreen.GeoFenceMapActivity" />
+        <activity android:name=".geofenceList.uiGeofenceList.uigeofencelist.GeoFenceListActivity" />
+        <activity
+            android:name=".systemIndicatorScreen.ui.SystemIndicatorScreen"
+            />
+>>>>>>> Stashed changes
         <activity
             android:name=".map.mapScreen.MapScreen"
             android:exported="true" />

@@ -1,8 +1,15 @@
 package com.twobvt.gosafe.map.mapScreen
 
+<<<<<<< Updated upstream
+=======
+import android.app.DatePickerDialog
+import android.content.Context
+>>>>>>> Stashed changes
 import android.content.DialogInterface.OnShowListener
 import android.graphics.Color
 import android.os.Bundle
+import android.os.StrictMode
+import android.os.StrictMode.ThreadPolicy
 import android.transition.Slide
 import android.transition.Transition
 import android.transition.TransitionManager
@@ -20,21 +27,35 @@ import com.twobvt.gosafe.base.BaseActivity
 import com.twobvt.gosafe.databinding.ActivityMapScreenBinding
 import com.twobvt.gosafe.map.mapRepository.MapRepository
 import com.twobvt.gosafe.map.mapViewModel.MapViewModel
+import com.twobvt.gosafe.systemIndicatorScreen.ui.SystemIndicatorScreen
 import kotlinx.android.synthetic.main.activity_map_screen.*
+<<<<<<< Updated upstream
+=======
+import java.text.SimpleDateFormat
+import java.util.*
 
+>>>>>>> Stashed changes
 
 class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapRepository>() , OnMapReadyCallback{
 
 
     private  var  googleMap :GoogleMap? = null
+<<<<<<< Updated upstream
     private var lat :Double = 0.0
     private var lng :Double = 0.0
+=======
+    private lateinit var  markingOptions :MarkerOptions
+    private var lat :Double = 31.533656
+    private var lng :Double = 74.346232
+>>>>>>> Stashed changes
     private var myMarker: Marker? = null
    private lateinit var subBottomSheetDialogForMapSettingsResetOdometerOne : BottomSheetDialog
    private lateinit var subBottomSheetDialogForMapSettingsResetOdometerTwo : BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val policy = ThreadPolicy.Builder().permitAll().build()
+        StrictMode.setThreadPolicy(policy)
 
 
         //Toolbar setup
@@ -49,6 +70,11 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
         loadMapFragment()
         fabInfoButton()
+        fabAlarmButton()
+        fabMarkerFocusButton()
+        fabNearByPlaces()
+        fabNearByVehicles()
+        fabHistory()
 
 
 
@@ -62,6 +88,41 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
         }
 
 
+    }
+    private fun fabAlarmButton(){
+        binding.fabAlert.setOnClickListener{
+            startActivity(Intent(this, SystemIndicatorScreen::class.java))
+        }
+    }
+    private fun fabMarkerFocusButton(){
+        binding.fabPinLocation.setOnClickListener{
+            loadVehicleLocationOnMap()
+        }
+    }
+    private fun fabNearByPlaces(){
+        binding.fabLocation.setOnClickListener {
+
+            Toast.makeText(this, "Nearby Places API Needed", Toast.LENGTH_SHORT).show()
+
+
+        }
+    }
+    private fun fabHistory(){
+        binding.fabHistory.setOnClickListener {
+            showBottomSheetDialogForMapHistory()
+
+
+
+
+        }
+    }
+    private fun fabNearByVehicles(){
+        binding.fabVehicle.setOnClickListener {
+
+            Toast.makeText(this, "Nearby Vehicles API Needed", Toast.LENGTH_SHORT).show()
+
+
+        }
     }
 
 
@@ -108,11 +169,11 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
 
 
-        for (z in 0 until myList.size) {
-            val point: LatLng = myList.get(z)
-            options.add(point)
-        }
-       googleMap!!.addPolyline(options)
+//        for (z in 0 until myList.size) {
+//            val point: LatLng = myList.get(z)
+//            options.add(point)
+//        }
+//       googleMap!!.addPolyline(options)
 
 
 
@@ -145,7 +206,9 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
         myMarker =   googleMap?.addMarker(
             MarkerOptions()
                 .position(latLng)
-                .title("Vehicle Location"),
+                .title("AIR ALLIANCE TRAVEL Jail Road")
+                .snippet(latLng.toString()) ,
+
         )
         // adding tag to marker
         myMarker?.tag  = 2
@@ -166,13 +229,22 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
         viewModel.vehicle.observe(this){
             //binding.toolbarText.setText(it.grp_name)
 
+
         }
 
         viewModel.packetParser.observe(this){
-
+            if(it.lat.toDouble() == 0.0 || it.lng.toDouble() == 0.0 ){
+                lat = 31.534114
+                lng = 74.345872
+            }else{
                 lat= it.lat.toDouble()
                 lng=it.lng.toDouble()
-            binding.toolbarText.setText(it.sim_no)
+            }
+
+            binding.toolbarText.setText(it.device_id)
+            print("aaaaaaaaaaaaaaaaaaaaarrrrrrrggg")
+            print(lat)
+            print(lng)
 
         }
 
@@ -263,11 +335,63 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
 
         bottomSheetDialog.setContentView(R.layout.map_history_bottom_sheet)
+<<<<<<< Updated upstream
+=======
+        val dropdownViewType = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerViewType)
+        val itemsViewType = arrayOf("Replay")
+        val adapterViewType = ArrayAdapter(this, R.layout.spinner_item, itemsViewType)
+        if (dropdownViewType != null) {
+            dropdownViewType.adapter = adapterViewType
+        }
+        val dropdownPeriodType = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerPeriodType)
+        val itemsPeriodType = arrayOf("Custom Date","Today", "Weekly", "Monthly")
+        val adapterPeriodType = ArrayAdapter(this, R.layout.spinner_item, itemsPeriodType)
+        if (dropdownPeriodType != null) {
+            dropdownPeriodType.adapter = adapterPeriodType
+        }
+>>>>>>> Stashed changes
         val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
         val viewType = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_map_history_view_type)
         // val resetOdometer = bottomSheetDialog.findViewById<LinearLayout>(R.id.bottom_sheet_settings_layout_reset_odometer)
+<<<<<<< Updated upstream
 
 
+=======
+//        btnStartDateSelect?.setOnClickListener {
+//
+//        }
+       edtTextStartDateSelect?.transformIntoDatePicker(this, "MM/dd/yyyy")
+       edtTextEndDateSelect?.transformIntoDatePicker(this, "MM/dd/yyyy")
+
+
+
+        //Search button
+        val dfDate = SimpleDateFormat("MM/dd/yyyy")
+        btnSearchBottomSheet?.setOnClickListener {
+            if(edtTextStartDateSelect?.getText().toString().isNotEmpty() && edtTextEndDateSelect?.getText().toString().isNotEmpty() ){
+                if(dfDate.parse(edtTextEndDateSelect?.getText().toString()).before(dfDate.parse(edtTextStartDateSelect?.getText().toString())))
+                {
+                    Toast.makeText(this, "End date should be bigger than start date", Toast.LENGTH_LONG).show()
+                }else{
+                    bottomSheetDialog.cancel()
+                    val intent = Intent(this, HistoryReplayActivity::class.java)
+
+                    startActivity(intent)
+                }
+
+            }else{
+                bottomSheetDialog.cancel()
+                val intent = Intent(this, HistoryReplayActivity::class.java)
+
+                startActivity(intent)
+            }
+
+
+
+
+
+
+>>>>>>> Stashed changes
 
 
         //view type button
@@ -313,7 +437,189 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
         bottomSheetDialog.setContentView(R.layout.map_control_subsheet_send_on_off_subsheet_send_take_picture)
         val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
+        val btnSend = bottomSheetDialog.findViewById<TextView>(R.id.btn_send_bottom)
        // val resetOdometer = bottomSheetDialog.findViewById<LinearLayout>(R.id.bottom_sheet_settings_layout_reset_odometer)
+        val btnCloseBottomSheetBottom = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_bottom)
+        val radioFirstButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_1)
+        val radioSecondButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_2)
+        val radioThirdButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_3)
+        val radioForthButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_4)
+        val radioFifthButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_5)
+        val radioSixthButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_6)
+        val radioSeventhButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_7)
+        val radioEighthButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_8)
+        val radioNinthButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_9)
+        val radioTenthButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_10)
+        val radioHighButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_high)
+        val radioNormalButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_normal)
+        val radioLowButton = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_low)
+        btnSend?.setOnClickListener {
+            if(radioFirstButton!!.isChecked || radioSecondButton!!.isChecked || radioThirdButton!!.isChecked || radioForthButton!!.isChecked
+                || radioFifthButton!!.isChecked || radioSixthButton!!.isChecked || radioSeventhButton!!.isChecked || radioEighthButton!!.isChecked || radioNinthButton!!.isChecked || radioTenthButton!!.isChecked
+            ){
+                if(radioHighButton!!.isChecked || radioLowButton!!.isChecked || radioNormalButton!!.isChecked){
+                    bottomSheetDialog.cancel()
+                    Toast.makeText(this, "Command Sent", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, "Please Select Picture Quality", Toast.LENGTH_SHORT).show()
+                }
+
+            }else{
+                Toast.makeText(this, "Please Select Camera Channel", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+        radioFirstButton?.setOnClickListener {
+//            if(radioFirstButton!!.isChecked) radioFirstButton.setChecked(false)
+            if(radioSecondButton!!.isChecked) radioSecondButton.setChecked(false)
+            if(radioThirdButton!!.isChecked) radioThirdButton.setChecked(false)
+            if(radioForthButton!!.isChecked) radioForthButton.setChecked(false)
+            if(radioFifthButton!!.isChecked) radioFifthButton.setChecked(false)
+            if(radioSixthButton!!.isChecked) radioSixthButton.setChecked(false)
+            if(radioSeventhButton!!.isChecked) radioSeventhButton.setChecked(false)
+            if(radioEighthButton!!.isChecked) radioEighthButton.setChecked(false)
+            if(radioNinthButton!!.isChecked) radioNinthButton.setChecked(false)
+            if(radioTenthButton!!.isChecked) radioTenthButton.setChecked(false)
+
+        }
+        radioSecondButton?.setOnClickListener {
+            if(radioFirstButton!!.isChecked) radioFirstButton.setChecked(false)
+//            if(radioSecondButton!!.isChecked) radioSecondButton.setChecked(false)
+            if(radioThirdButton!!.isChecked) radioThirdButton.setChecked(false)
+            if(radioForthButton!!.isChecked) radioForthButton.setChecked(false)
+            if(radioFifthButton!!.isChecked) radioFifthButton.setChecked(false)
+            if(radioSixthButton!!.isChecked) radioSixthButton.setChecked(false)
+            if(radioSeventhButton!!.isChecked) radioSeventhButton.setChecked(false)
+            if(radioEighthButton!!.isChecked) radioEighthButton.setChecked(false)
+            if(radioNinthButton!!.isChecked) radioNinthButton.setChecked(false)
+            if(radioTenthButton!!.isChecked) radioTenthButton.setChecked(false)
+
+        }
+        radioThirdButton?.setOnClickListener {
+            if(radioFirstButton!!.isChecked) radioFirstButton.setChecked(false)
+            if(radioSecondButton!!.isChecked) radioSecondButton.setChecked(false)
+//            if(radioThirdButton!!.isChecked) radioThirdButton.setChecked(false)
+            if(radioForthButton!!.isChecked) radioForthButton.setChecked(false)
+            if(radioFifthButton!!.isChecked) radioFifthButton.setChecked(false)
+            if(radioSixthButton!!.isChecked) radioSixthButton.setChecked(false)
+            if(radioSeventhButton!!.isChecked) radioSeventhButton.setChecked(false)
+            if(radioEighthButton!!.isChecked) radioEighthButton.setChecked(false)
+            if(radioNinthButton!!.isChecked) radioNinthButton.setChecked(false)
+            if(radioTenthButton!!.isChecked) radioTenthButton.setChecked(false)
+
+        }
+        radioForthButton?.setOnClickListener {
+            if(radioFirstButton!!.isChecked) radioFirstButton.setChecked(false)
+            if(radioSecondButton!!.isChecked) radioSecondButton.setChecked(false)
+            if(radioThirdButton!!.isChecked) radioThirdButton.setChecked(false)
+//            if(radioForthButton!!.isChecked) radioForthButton.setChecked(false)
+            if(radioFifthButton!!.isChecked) radioFifthButton.setChecked(false)
+            if(radioSixthButton!!.isChecked) radioSixthButton.setChecked(false)
+            if(radioSeventhButton!!.isChecked) radioSeventhButton.setChecked(false)
+            if(radioEighthButton!!.isChecked) radioEighthButton.setChecked(false)
+            if(radioNinthButton!!.isChecked) radioNinthButton.setChecked(false)
+            if(radioTenthButton!!.isChecked) radioTenthButton.setChecked(false)
+
+        }
+        radioFifthButton?.setOnClickListener {
+            if(radioFirstButton!!.isChecked) radioFirstButton.setChecked(false)
+            if(radioSecondButton!!.isChecked) radioSecondButton.setChecked(false)
+            if(radioThirdButton!!.isChecked) radioThirdButton.setChecked(false)
+            if(radioForthButton!!.isChecked) radioForthButton.setChecked(false)
+//            if(radioFifthButton!!.isChecked) radioFifthButton.setChecked(false)
+            if(radioSixthButton!!.isChecked) radioSixthButton.setChecked(false)
+            if(radioSeventhButton!!.isChecked) radioSeventhButton.setChecked(false)
+            if(radioEighthButton!!.isChecked) radioEighthButton.setChecked(false)
+            if(radioNinthButton!!.isChecked) radioNinthButton.setChecked(false)
+            if(radioTenthButton!!.isChecked) radioTenthButton.setChecked(false)
+
+        }
+        radioSixthButton?.setOnClickListener {
+            if(radioFirstButton!!.isChecked) radioFirstButton.setChecked(false)
+            if(radioSecondButton!!.isChecked) radioSecondButton.setChecked(false)
+            if(radioThirdButton!!.isChecked) radioThirdButton.setChecked(false)
+            if(radioForthButton!!.isChecked) radioForthButton.setChecked(false)
+            if(radioFifthButton!!.isChecked) radioFifthButton.setChecked(false)
+//            if(radioSixthButton!!.isChecked) radioSixthButton.setChecked(false)
+            if(radioSeventhButton!!.isChecked) radioSeventhButton.setChecked(false)
+            if(radioEighthButton!!.isChecked) radioEighthButton.setChecked(false)
+            if(radioNinthButton!!.isChecked) radioNinthButton.setChecked(false)
+            if(radioTenthButton!!.isChecked) radioTenthButton.setChecked(false)
+
+        }
+        radioSeventhButton?.setOnClickListener {
+            if(radioFirstButton!!.isChecked) radioFirstButton.setChecked(false)
+            if(radioSecondButton!!.isChecked) radioSecondButton.setChecked(false)
+            if(radioThirdButton!!.isChecked) radioThirdButton.setChecked(false)
+            if(radioForthButton!!.isChecked) radioForthButton.setChecked(false)
+            if(radioFifthButton!!.isChecked) radioFifthButton.setChecked(false)
+            if(radioSixthButton!!.isChecked) radioSixthButton.setChecked(false)
+//            if(radioSeventhButton!!.isChecked) radioSeventhButton.setChecked(false)
+            if(radioEighthButton!!.isChecked) radioEighthButton.setChecked(false)
+            if(radioNinthButton!!.isChecked) radioNinthButton.setChecked(false)
+            if(radioTenthButton!!.isChecked) radioTenthButton.setChecked(false)
+
+        }
+        radioEighthButton?.setOnClickListener {
+            if(radioFirstButton!!.isChecked) radioFirstButton.setChecked(false)
+            if(radioSecondButton!!.isChecked) radioSecondButton.setChecked(false)
+            if(radioThirdButton!!.isChecked) radioThirdButton.setChecked(false)
+            if(radioForthButton!!.isChecked) radioForthButton.setChecked(false)
+            if(radioFifthButton!!.isChecked) radioFifthButton.setChecked(false)
+            if(radioSixthButton!!.isChecked) radioSixthButton.setChecked(false)
+            if(radioSeventhButton!!.isChecked) radioSeventhButton.setChecked(false)
+//            if(radioEighthButton!!.isChecked) radioEighthButton.setChecked(false)
+            if(radioNinthButton!!.isChecked) radioNinthButton.setChecked(false)
+            if(radioTenthButton!!.isChecked) radioTenthButton.setChecked(false)
+
+        }
+        radioNinthButton?.setOnClickListener {
+            if(radioFirstButton!!.isChecked) radioFirstButton.setChecked(false)
+            if(radioSecondButton!!.isChecked) radioSecondButton.setChecked(false)
+            if(radioThirdButton!!.isChecked) radioThirdButton.setChecked(false)
+            if(radioForthButton!!.isChecked) radioForthButton.setChecked(false)
+            if(radioFifthButton!!.isChecked) radioFifthButton.setChecked(false)
+            if(radioSixthButton!!.isChecked) radioSixthButton.setChecked(false)
+            if(radioSeventhButton!!.isChecked) radioSeventhButton.setChecked(false)
+            if(radioEighthButton!!.isChecked) radioEighthButton.setChecked(false)
+//            if(radioNinthButton!!.isChecked) radioNinthButton.setChecked(false)
+            if(radioTenthButton!!.isChecked) radioTenthButton.setChecked(false)
+
+        }
+        radioTenthButton?.setOnClickListener {
+            if(radioFirstButton!!.isChecked) radioFirstButton.setChecked(false)
+            if(radioSecondButton!!.isChecked) radioSecondButton.setChecked(false)
+            if(radioThirdButton!!.isChecked) radioThirdButton.setChecked(false)
+            if(radioForthButton!!.isChecked) radioForthButton.setChecked(false)
+            if(radioFifthButton!!.isChecked) radioFifthButton.setChecked(false)
+            if(radioSixthButton!!.isChecked) radioSixthButton.setChecked(false)
+            if(radioSeventhButton!!.isChecked) radioSeventhButton.setChecked(false)
+            if(radioEighthButton!!.isChecked) radioEighthButton.setChecked(false)
+            if(radioNinthButton!!.isChecked) radioNinthButton.setChecked(false)
+//            if(radioTenthButton!!.isChecked) radioTenthButton.setChecked(false)
+
+        }
+        radioHighButton?.setOnClickListener {
+            if(radioNormalButton!!.isChecked) radioNormalButton.setChecked(false)
+            if(radioLowButton!!.isChecked) radioLowButton.setChecked(false)
+
+        }
+        radioNormalButton?.setOnClickListener {
+            if(radioHighButton!!.isChecked) radioHighButton.setChecked(false)
+            if(radioLowButton!!.isChecked) radioLowButton.setChecked(false)
+
+        }
+        radioLowButton?.setOnClickListener {
+            if(radioNormalButton!!.isChecked) radioNormalButton.setChecked(false)
+            if(radioHighButton!!.isChecked) radioHighButton.setChecked(false)
+
+        }
+//        radioSecondButton?.setOnClickListener {
+//            if(radioFirstButton!!.isChecked){
+//                radioFirstButton.setChecked(false)
+//            }
+//        }
+
 
         //close button
         btnCloseBottomSheetTop?.setOnClickListener {
@@ -326,7 +632,7 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 //
 //        }
 
-        val btnCloseBottomSheetBottom = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_bottom)
+
 
         //close button
         btnCloseBottomSheetBottom?.setOnClickListener {
@@ -356,16 +662,104 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
         bottomSheetDialog.setContentView(R.layout.map_control_subsheet_send_on_off_output)
         val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
-        val btnOnOff = bottomSheetDialog.findViewById<TextView>(R.id.btn_send_bottom)
+        val btnSend = bottomSheetDialog.findViewById<TextView>(R.id.btn_send_bottom)
+        val radioOne = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_optp_one)
+        val radioTwo = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_optp_two)
+        val radioThree = bottomSheetDialog.findViewById<RadioButton>(R.id.radio_optp_three)
+        radioOne?.setOnClickListener {
+            if(radioTwo!!.isChecked) radioTwo.setChecked(false)
+            if(radioThree!!.isChecked) radioThree.setChecked(false)
+
+        }
+        radioTwo?.setOnClickListener {
+            if(radioThree!!.isChecked) radioThree.setChecked(false)
+            if(radioOne!!.isChecked) radioOne.setChecked(false)
+
+        }
+        radioThree?.setOnClickListener {
+            if(radioTwo!!.isChecked) radioTwo.setChecked(false)
+            if(radioOne!!.isChecked) radioOne.setChecked(false)
+
+        }
+
+                btnSend?.setOnClickListener {
+                    if(radioOne!!.isChecked || radioTwo!!.isChecked || radioThree!!.isChecked){
+                        bottomSheetDialog.cancel()
+                        Toast.makeText(this, "Command Sent", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(this, "Please Select an option", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+
+
+        //close button
+        btnCloseBottomSheetTop?.setOnClickListener {
+            bottomSheetDialog.cancel()
+        }
+
+        //close button and open next sheet
+//        btnOnOff?.setOnClickListener {
+//            bottomSheetDialog.cancel()
+//            showBottomSheetDialogForMapControlOnOffSendTakePicture()
+//
+//        }
+
+        val btnCloseBottomSheetBottom = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_bottom)
+
+        //close button
+        btnCloseBottomSheetBottom?.setOnClickListener {
+            bottomSheetDialog.cancel()
+        }
+
+        bottomSheetDialog.show()
+
+    }
+<<<<<<< Updated upstream
+=======
+    private fun showBottomSheetDialogForMapControlTakePicture() {
+
+        val bottomSheetDialog = BottomSheetDialog(this)
+
+        bottomSheetDialog.setOnShowListener(OnShowListener { dialog ->
+            val d = dialog as BottomSheetDialog
+            val bottomSheet = d.findViewById<View>(R.id.design_bottom_sheet) as FrameLayout?
+                ?: return@OnShowListener
+
+            bottomSheet.background = null
+
+        })
+
+
+
+
+
+
+        bottomSheetDialog.setContentView(R.layout.map_control_subsheet_take_picture)
+        val dropdownCameraChannel = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerCameraChannel)
+        val itemsCameraChannel = arrayOf("1","2","3","4","5","6","7","8","9","10")
+        val adapterCameraChannel = ArrayAdapter(this, R.layout.spinner_item, itemsCameraChannel)
+        if (dropdownCameraChannel != null) {
+            dropdownCameraChannel.adapter = adapterCameraChannel
+        }
+        val dropdownPictureQuality = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerPictureQuality)
+        val itemsPictureQuality = arrayOf("High","Medium","Low")
+        val adapterPictureQuality = ArrayAdapter(this, R.layout.spinner_item, itemsPictureQuality)
+        if (dropdownPictureQuality != null) {
+            dropdownPictureQuality.adapter = adapterPictureQuality
+        }
+        val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
+        val btntakePicture = bottomSheetDialog.findViewById<TextView>(R.id.btn_send_bottom)
 
         //close button
         btnCloseBottomSheetTop?.setOnClickListener {
             bottomSheetDialog.cancel()
         }
         //close button and open next sheet
-        btnOnOff?.setOnClickListener {
-            bottomSheetDialog.cancel()
-            showBottomSheetDialogForMapControlOnOffSendTakePicture()
+        btntakePicture?.setOnClickListener {
+            Toast.makeText(this, "Commands Sent Successfully", Toast.LENGTH_SHORT).show()
+//            bottomSheetDialog.cancel()
+//            showBottomSheetDialogForMapControlOnOffSendTakePicture()
 
         }
 
@@ -379,6 +773,59 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
         bottomSheetDialog.show()
 
     }
+    private fun showBottomSheetDialogForMapControlVoiceMonitor() {
+
+        val bottomSheetDialog = BottomSheetDialog(this)
+
+        bottomSheetDialog.setOnShowListener(OnShowListener { dialog ->
+            val d = dialog as BottomSheetDialog
+            val bottomSheet = d.findViewById<View>(R.id.design_bottom_sheet) as FrameLayout?
+                ?: return@OnShowListener
+
+            bottomSheet.background = null
+
+        })
+
+
+
+
+
+
+        bottomSheetDialog.setContentView(R.layout.map_control_subsheet_voice_monitor)
+
+
+        val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
+        val btnVoiceMonitor = bottomSheetDialog.findViewById<TextView>(R.id.btn_send_bottom)
+        val btnPhoneNumber = bottomSheetDialog.findViewById<EditText>(R.id.phone_number_edt)
+        //close button
+        btnCloseBottomSheetTop?.setOnClickListener {
+            bottomSheetDialog.cancel()
+        }
+        //close button and open next sheet
+        btnVoiceMonitor?.setOnClickListener {
+            if(btnPhoneNumber?.text.toString().isEmpty() ){
+                Toast.makeText(this, "Fill In Phone Number", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this, "Commands Sent Successfully", Toast.LENGTH_SHORT).show()
+                bottomSheetDialog.cancel()
+            }
+
+//            bottomSheetDialog.cancel()
+//            showBottomSheetDialogForMapControlOnOffSendTakePicture()
+
+        }
+
+        val btnCloseBottomSheetBottom = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_bottom)
+
+        //close button
+        btnCloseBottomSheetBottom?.setOnClickListener {
+            bottomSheetDialog.cancel()
+        }
+
+        bottomSheetDialog.show()
+
+    }
+>>>>>>> Stashed changes
     private fun showSubBottomSheetDialogForMapSettingsResetOdometerOne() {
 
         subBottomSheetDialogForMapSettingsResetOdometerOne = BottomSheetDialog(this)
@@ -396,7 +843,17 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
         subBottomSheetDialogForMapSettingsResetOdometerOne.setContentView(R.layout.map_settings_sub_sheet_odometer_one)
         val btnCloseBottomSheetTop = subBottomSheetDialogForMapSettingsResetOdometerOne.findViewById<TextView>(R.id.btn_cancel_top)
         val btnSendBottomSheetBottom = subBottomSheetDialogForMapSettingsResetOdometerOne.findViewById<TextView>(R.id.btn_send_bottom)
+        val radioGroup = subBottomSheetDialogForMapSettingsResetOdometerOne.findViewById<RadioGroup>(R.id.radioGroup1)
+        val radioFirstButton = subBottomSheetDialogForMapSettingsResetOdometerOne.findViewById<RadioButton>(R.id.radio_gprs)
+        val radioSecondButton = subBottomSheetDialogForMapSettingsResetOdometerOne.findViewById<RadioButton>(R.id.radio_gps)
+        radioFirstButton?.setOnClickListener {
+            if(radioSecondButton!!.isChecked) radioSecondButton.setChecked(false)
 
+
+        }
+        radioSecondButton?.setOnClickListener {
+            if(radioFirstButton!!.isChecked) radioFirstButton.setChecked(false)
+        }
 
         btnCloseBottomSheetTop?.setOnClickListener {
             subBottomSheetDialogForMapSettingsResetOdometerOne.cancel()
@@ -404,8 +861,16 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
 
         btnSendBottomSheetBottom?.setOnClickListener {
-            subBottomSheetDialogForMapSettingsResetOdometerOne.cancel()
+            if(radioFirstButton!!.isChecked || radioSecondButton!!.isChecked){
+                subBottomSheetDialogForMapSettingsResetOdometerOne.cancel()
             showSubBottomSheetDialogForMapSettingsResetOdometerTwo()
+            }else{
+                Toast.makeText(this, "Please Select an option", Toast.LENGTH_SHORT).show()
+            }
+//            val selectedId: Int = radioGroup!!.getCheckedRadioButtonId()
+//            val radioSexButton = subBottomSheetDialogForMapSettingsResetOdometerOne.findViewById<RadioButton>(selectedId)
+//
+//
         }
 
 
@@ -436,10 +901,16 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
         subBottomSheetDialogForMapSettingsResetOdometerTwo.setContentView(R.layout.map_settings_sub_sheet_odometer_two)
         val btnCloseBottomSheetTop = subBottomSheetDialogForMapSettingsResetOdometerTwo.findViewById<TextView>(R.id.btn_cancel_top)
-
+        val sendOdometer = subBottomSheetDialogForMapSettingsResetOdometerTwo.findViewById<TextView>(R.id.btn_send_bottom_odometer_final)
 
         btnCloseBottomSheetTop?.setOnClickListener {
             subBottomSheetDialogForMapSettingsResetOdometerTwo.cancel()
+        }
+        sendOdometer?.setOnClickListener {
+            Toast.makeText(this, "Commands Sent Successfully", Toast.LENGTH_SHORT).show()
+            subBottomSheetDialogForMapSettingsResetOdometerTwo.cancel()
+//            subBottomSheetDialogForMapSettingsResetOdometerOne.cancel()
+
         }
 
         val btnCloseBottomSheetBottom = subBottomSheetDialogForMapSettingsResetOdometerTwo.findViewById<TextView>(R.id.btn_cancel_bottom)
@@ -453,6 +924,10 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
 
     }
+    private fun callApiFromViewModel(){
+        subBottomSheetDialogForMapSettingsResetOdometerOne.findViewById<TextView>(R.id.btn_cancel_bottom)?.text.toString()
+    }
+
     private fun showBottomSheetDialogForMapSettings() {
 
         val bottomSheetDialog = BottomSheetDialog(this)
@@ -465,23 +940,36 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
             bottomSheet.background = null
 
         })
-
-
-
-
-
-
         bottomSheetDialog.setContentView(R.layout.map_settings_bottom_sheet)
         val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
         val resetOdometer = bottomSheetDialog.findViewById<LinearLayout>(R.id.bottom_sheet_settings_layout_reset_odometer)
-
+        val textCommandOne = bottomSheetDialog.findViewById<LinearLayout>(R.id.text_command)
+        val changeIP = bottomSheetDialog.findViewById<LinearLayout>(R.id.change_ip)
+        val changeAPN = bottomSheetDialog.findViewById<LinearLayout>(R.id.change_apn)
+        val textCommandTwo = bottomSheetDialog.findViewById<LinearLayout>(R.id.text_command_two)
+        val btnCloseBottomSheetSetting = bottomSheetDialog.findViewById<Button>(R.id.btn_close_bottom_sheet_settings)
         //close button
+        btnCloseBottomSheetSetting?.setOnClickListener{
+            bottomSheetDialog.cancel()
+        }
         btnCloseBottomSheetTop?.setOnClickListener {
             bottomSheetDialog.cancel()
         }
+        textCommandOne?.setOnClickListener {
+            Toast.makeText(this, "Setting Commands Sent Successfully", Toast.LENGTH_SHORT).show()
+        }
+        changeIP?.setOnClickListener {
+            Toast.makeText(this, "IP Chnage Request Sent", Toast.LENGTH_SHORT).show()
+        }
+        changeAPN?.setOnClickListener {
+            Toast.makeText(this, "APN Change Request Sent", Toast.LENGTH_SHORT).show()
+        }
+        textCommandTwo?.setOnClickListener {
+            Toast.makeText(this, "Setting Commands Sent Successfully", Toast.LENGTH_SHORT).show()
+        }
         //close button and open next sheet
         resetOdometer?.setOnClickListener {
-            bottomSheetDialog.cancel()
+//            bottomSheetDialog.cancel()
             showSubBottomSheetDialogForMapSettingsResetOdometerOne()
 
         }
@@ -513,6 +1001,33 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
         bottomSheetDialog.setContentView(R.layout.map_controls_bottom_sheet)
         val btnCloseBottomSheet = bottomSheetDialog.findViewById<Button>(R.id.btn_close_bottom_sheet)
         val btnOnOff = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_output_on_off)
+<<<<<<< Updated upstream
+=======
+        val btnTakePicture = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_take_picture)
+        val btnVoiceMonitor = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_voice_monitor)
+        val btnAlarmReset = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_alarm_reset)
+        val btnCanbusDataUploaD = bottomSheetDialog.findViewById<LinearLayout>(R.id.cnabus_data_upload)
+        val btnDeviceReboot = bottomSheetDialog.findViewById<LinearLayout>(R.id.device_reboot)
+        val btnLocation = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_location)
+
+        val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
+        val btnCloseBottomSheetControls = bottomSheetDialog.findViewById<Button>(R.id.btn_close_bottom_sheet_controls)
+        btnCloseBottomSheetControls?.setOnClickListener {
+            bottomSheetDialog.cancel()
+        }
+        btnAlarmReset?.setOnClickListener {
+            Toast.makeText(this, "Commands Sent Successfully", Toast.LENGTH_SHORT).show()
+        }
+        btnCanbusDataUploaD?.setOnClickListener {
+            Toast.makeText(this, "Commands Sent Successfully", Toast.LENGTH_SHORT).show()
+        }
+        btnDeviceReboot?.setOnClickListener {
+            Toast.makeText(this, "Commands Sent Successfully", Toast.LENGTH_SHORT).show()
+        }
+        btnLocation?.setOnClickListener {
+            Toast.makeText(this, "Commands Sent Successfully", Toast.LENGTH_SHORT).show()
+        }
+>>>>>>> Stashed changes
 
         //close button
         btnCloseBottomSheet?.setOnClickListener {
@@ -523,6 +1038,16 @@ class MapScreen : BaseActivity<MapViewModel,ActivityMapScreenBinding,MapReposito
 
             showBottomSheetDialogForMapControlSendOutPut()
         }
+<<<<<<< Updated upstream
+=======
+        btnTakePicture?.setOnClickListener{
+            showBottomSheetDialogForMapControlOnOffSendTakePicture()
+        }
+        btnVoiceMonitor?.setOnClickListener{
+            showBottomSheetDialogForMapControlVoiceMonitor()
+        }
+//
+>>>>>>> Stashed changes
 
         bottomSheetDialog.show()
 

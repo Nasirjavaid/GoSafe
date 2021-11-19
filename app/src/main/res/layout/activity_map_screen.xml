@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/map_screen_main"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
@@ -83,9 +84,10 @@
                 app:layout_constraintVertical_bias="0.956" />
 
             <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/fab_pin_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onClickPortraitOption1"
+
                 app:maxImageSize="35dp"
                 android:src="@drawable/fab_location_icon"
                 app:elevation="0dp"
@@ -94,9 +96,10 @@
                 app:fab_orientation="portrait" />
 
             <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/fab_history"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onClickPortraitOption1"
+
                 app:fab_icon="@drawable/fab_map_location"
                 app:elevation="0dp"
                 app:maxImageSize="35dp"
@@ -105,10 +108,11 @@
                 app:fab_orientation="portrait" />
 
             <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/fab_alert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onClickPortraitOption1"
-                app:fab_icon="@drawable/fab_refresh_icon"
+
+                app:fab_icon="@drawable/alert_icon"
                 app:elevation="0dp"
                 app:maxImageSize="35dp"
                 android:layout_marginTop="4dp"
@@ -116,9 +120,10 @@
                 app:fab_orientation="portrait" />
 
             <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/fab_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onClickPortraitOption1"
+
                 app:fab_icon="@drawable/fab_location_pin"
                 app:elevation="0dp"
                 app:maxImageSize="35dp"
@@ -127,10 +132,11 @@
                 app:fab_orientation="portrait" />
 
             <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/fab_vehicle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onClickPortraitOption1"
-                app:fab_icon="@drawable/fab_vehicle_icon"
+
+                app:fab_icon="@drawable/near_by_vehicles"
                 app:elevation="0dp"
                 app:maxImageSize="35dp"
                 android:layout_marginTop="4dp"

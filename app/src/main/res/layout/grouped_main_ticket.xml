@@ -34,6 +34,7 @@
         android:orientation="vertical"
         >
 
+<<<<<<< Updated upstream
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -51,6 +52,49 @@
                 app:civ_border_color="@color/app_default_color"
                 app:civ_border_width="1dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+=======
+
+
+
+<!--            <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                android:id="@+id/vehicle_image_main_layout_ticket"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:padding="2dp"-->
+<!--                android:layout_marginHorizontal="8dp"-->
+<!--                android:cropToPadding="true"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:src="@drawable/alarm_car"-->
+<!--                app:civ_border_color="@color/app_default_color"-->
+<!--                app:civ_border_width="1dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+
+<!--            <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                android:id="@+id/floating_corner_main_layout_ticket"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_alignRight="@+id/vehicle_image_main_layout_ticket"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:cropToPadding="true"-->
+<!--                android:paddingRight="3dp"-->
+<!--                android:src="@drawable/moving_car"-->
+<!--                android:translationX="12dp"-->
+<!--                android:translationY="-2dp"-->
+<!--                app:civ_border_color="@color/app_default_color"-->
+<!--                app:civ_border_width="1dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/vehicle_image_main_layout_ticket"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/vehicle_image_main_layout_ticket"-->
+<!--                app:layout_constraintVertical_bias="0.0" />-->
+            <ImageView
+                android:id="@+id/image_view_grouped"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+>>>>>>> Stashed changes
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

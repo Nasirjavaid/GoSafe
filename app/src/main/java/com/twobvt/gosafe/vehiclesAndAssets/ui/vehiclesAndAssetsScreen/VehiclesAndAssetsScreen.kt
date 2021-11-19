@@ -9,7 +9,10 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.compose.ui.text.toLowerCase
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.twobvt.gosafe.base.BaseActivity
@@ -23,6 +26,7 @@ import com.twobvt.gosafe.vehiclesAndAssets.vaApi.VaApi
 import com.twobvt.gosafe.vehiclesAndAssets.vaRepository.AssetRepository
 import com.twobvt.gosafe.vehiclesAndAssets.vaRepository.VaRepository
 import com.twobvt.gosafe.vehiclesAndAssets.vaRepository.VehicleRepository
+import com.twobvt.gosafe.vehiclesAndAssets.vaResponces.SubMenu
 import com.twobvt.gosafe.vehiclesAndAssets.vaViewModel.VaViewModel
 import java.util.*
 
@@ -35,8 +39,13 @@ class VehiclesAndAssetsScreen :
     lateinit var searchView: SearchView
    // lateinit var listView: ListView
     lateinit var list: ArrayList<String>
+    lateinit var lista: List<SubMenu>
     lateinit var adapter: ArrayAdapter<*>
     private lateinit var tinyDB: TinyDB
+    var listb : MutableList<SubMenu> = mutableListOf()
+    var listc : MutableList<SubMenu> = mutableListOf()
+    var fragment_number : Int = 0
+    var searchText : String = ""
 
     private lateinit var vehiclesRepository: VehicleRepository
     private lateinit var assetRepository : AssetRepository
@@ -62,6 +71,9 @@ class VehiclesAndAssetsScreen :
         //search view and listView setup
         searchView = binding.searchView
       //  listView = binding.listView
+        print("search query here ")
+        print(searchView.query)
+
 
 
 
@@ -78,25 +90,27 @@ class VehiclesAndAssetsScreen :
 //        list.add("Watermelon")
 //        list.add("Papaya")
 //        adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list)
-////        listView.adapter = adapter
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//
-//            override fun onQueryTextSubmit(query: String): Boolean {
-//                if (list.contains(query)) {
-//                    adapter.filter.filter(query)
-//
-//
-//                } else {
-//                    Toast.makeText(applicationContext, "No Match found", Toast.LENGTH_LONG).show()
-//                }
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newText: String): Boolean {
-//                adapter.filter.filter(newText)
-//                return false
-//            }
-//        })
+//        listView.adapter = adapter
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                print("query hereeeeeeeeeeee")
+                print(query)
+
+
+                    getVehiclesTreeList(query)
+
+
+
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+
+                getVehiclesTreeList(newText)
+                return false
+            }
+        })
 
 
 //
@@ -112,7 +126,7 @@ class VehiclesAndAssetsScreen :
         changePositionButtonOnClick()
 
         // get list Of vehicles
-        getVehiclesTreeList()
+        getVehiclesTreeList("")
 
     }
 
@@ -191,7 +205,7 @@ class VehiclesAndAssetsScreen :
 
     }
 
-    private fun getVehiclesTreeList() {
+    private fun getVehiclesTreeList(string:String) {
 
         //Custom waiting
             //Calling login function from view model
@@ -206,17 +220,114 @@ class VehiclesAndAssetsScreen :
                     }
                     is Resource.Success -> {
 
-                        //println("Success $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-
-                        //this function is replacing thr initial view
-                        replaceFragment(VehiclesFragment())
-
                         subMenuListVehicles =it.value.data[0].SubMenu
                         subMenuListAssets =it.value.data[1].SubMenu
-                        //sending data to repositories
-                        vehiclesRepository.sendVehiclesList(subMenuListVehicles)
-                        assetRepository.sendAssetList(subMenuListAssets)
+                        if(fragment_number == 0){
+                            if(string == "" ){
+                                print("without query")
+                                listb = subMenuListVehicles.toMutableList()
+                                listc = subMenuListAssets.toMutableList()
+                                print("list sixe")
+                                print(listb.size)
+                                replaceFragment(VehiclesFragment())
+
+//                        subMenuListVehicles =it.value.data[0].SubMenu
+//                                subMenuListAssets =it.value.data[1].SubMenu
+                                //sending data to repositories
+                                vehiclesRepository.sendVehiclesList(listb)
+                                assetRepository.sendAssetList(listc)
 //                        println("Success sublist size is  ${  it.value[0]}")
+
+                            }else{
+                                print("inside search query")
+                                listb.clear()
+
+
+                                subMenuListVehicles.forEachIndexed { index, subMenu ->
+                                    if (subMenu.device_id.toString().contains(string)) {
+                                        print("matching device id")
+                                        print(subMenu.device_id)
+                                        listb.add(subMenu)
+
+                                    }
+                                }
+                                listc = subMenuListAssets.toMutableList()
+                                print("with query list size")
+                                print(listb.size)
+                                replaceFragment(VehiclesFragment())
+
+//                        subMenuListVehicles =it.value.data[0].SubMenu
+//                            subMenuListAssets =it.value.data[1].SubMenu
+                                //sending data to repositories
+                                vehiclesRepository.sendVehiclesList(listb)
+                                assetRepository.sendAssetList(listc)
+//                        println("Success sublist size is  ${  it.value[0]}")
+
+
+
+
+
+
+                            }
+
+                        }else if(fragment_number == 1){
+                            if(string == "" ){
+                                print("without query")
+                                listb = subMenuListVehicles.toMutableList()
+                                listc = subMenuListAssets.toMutableList()
+                                print("list sixe")
+                                print(listb.size)
+                                replaceFragment(AssetsFragment())
+
+//                        subMenuListVehicles =it.value.data[0].SubMenu
+//                                subMenuListAssets =it.value.data[1].SubMenu
+                                //sending data to repositories
+                                vehiclesRepository.sendVehiclesList(listb)
+                                assetRepository.sendAssetList(listc)
+//                        println("Success sublist size is  ${  it.value[0]}")
+
+                            }else{
+                                print("inside search query")
+                                listc.clear()
+
+
+                                subMenuListAssets.forEachIndexed { index, subMenu ->
+                                    if(subMenu.grp_name != null){
+
+
+                                    if (subMenu.grp_name.toLowerCase().contains(string.toLowerCase())) {
+                                        print("matching device id")
+                                        print(subMenu.grp_name)
+                                        listc.add(subMenu)
+
+                                    }
+                                    }
+                                }
+                                listb = subMenuListVehicles.toMutableList()
+                                print("with query list size")
+                                print(listc.size)
+                                replaceFragment(AssetsFragment())
+
+//                        subMenuListVehicles =it.value.data[0].SubMenu
+//                            subMenuListAssets =it.value.data[1].SubMenu
+                                //sending data to repositories
+                                vehiclesRepository.sendVehiclesList(listb)
+                                assetRepository.sendAssetList(listc)
+//                        println("Success sublist size is  ${  it.value[0]}")
+
+
+
+
+
+
+                            }
+
+
+                        }
+
+
+
+
 
                     }
 
@@ -237,10 +348,19 @@ class VehiclesAndAssetsScreen :
             when(it){
 
                 0 -> {
+                    searchView.setQuery("", false);
+                    searchView.clearFocus();
+
+                    fragment_number = 0
+
                     replaceFragment(VehiclesFragment())
                 }
 
                 1 -> {
+                    searchView.setQuery("", false);
+                    searchView.clearFocus();
+
+                    fragment_number = 1
                     replaceFragment(AssetsFragment())}
             }
         }

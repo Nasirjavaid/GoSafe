@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/new_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="@color/app_default_color"
+        android:theme="@style/CustomToolbarTheme">
+
+
+
+        <TextView
+            android:id="@+id/toolbarText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="History Replay"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            ></TextView>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout android:id="@+id/mapLinearLayout"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+        <!--android:paddingRight="16dp"-->
+        <!--android:paddingLeft="16dp"-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="9"-->
+<!--        >-->
+
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="592dp"
+            android:layout_weight="9"
+            tools:context="com.twobvt.gosafe.historyReplay.HistoryReplayActivity" />
+
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:background="@drawable/colored_bottom_sheet_bg"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:paddingHorizontal="3dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="25dp"
+                android:weightSum="6">
+
+                <ImageView
+                    android:id="@+id/add_new_route"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+
+                    android:layout_weight="1.0"
+                    android:src="@drawable/map_tracking_pin"></ImageView>
+                <!--        <ImageView-->
+                <!--            android:layout_width="0dp"-->
+                <!--            android:layout_height="40dp"-->
+                <!--            android:layout_weight="1.0"-->
+                <!--            android:layout_marginRight="12dp"-->
+                <!--            android:src="@drawable/map_excel_icon"-->
+                <!--            ></ImageView>-->
+
+
+                <ImageView
+                    android:id="@+id/map_play"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1.0"
+
+
+                    android:src="@drawable/map_play_icon"></ImageView>
+
+
+                <ImageView
+                    android:id="@+id/map_speed_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1.0"
+
+
+                    android:src="@drawable/map_1x_icon"></ImageView>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1.0"
+
+                    android:src="@drawable/map_stop_gray_icon"></ImageView>
+
+                <!--        <ImageView-->
+                <!--            android:layout_width="0dp"-->
+                <!--            android:layout_height="40dp"-->
+                <!--            android:layout_marginRight="12dp"-->
+                <!--            android:layout_weight="1.0"-->
+                <!--            android:src="@drawable/map_pdf_icon"-->
+                <!--            ></ImageView>-->
+                <ImageView
+                    android:id="@+id/map_view_type_info_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1.0"
+                    android:src="@drawable/info_icon"></ImageView>
+
+
+            </LinearLayout>
+
+            <com.nambimobile.widgets.efab.ExpandableFabLayout
+                android:layout_width="60dp"
+                android:layout_height="250dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center">
+
+
+                <com.nambimobile.widgets.efab.ExpandableFab
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@color/grey"
+                    app:efab_color="@color/bottom_sheet_btn_color"
+                    app:efab_fabOptionSize="mini"
+                    app:efab_firstFabOptionMarginPx="115"
+                    app:efab_iconAnimationRotationDeg="90"
+                    app:efab_orientation="portrait"
+                    app:efab_size="custom"
+                    app:efab_successiveFabOptionMarginPx="70"
+                    app:elevation="0dp"
+                    app:fabCustomSize="40dp"
+                    app:maxImageSize="23.5dp" />
+
+
+<!--                <com.nambimobile.widgets.efab.FabOption-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="bottom"-->
+<!--                    android:layout_marginLeft="12dp"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:layout_marginBottom="8dp"-->
+<!--                    android:gravity="bottom"-->
+<!--                    android:onClick="onClickPortraitOption1"-->
+<!--                    app:elevation="0dp"-->
+<!--                    app:fab_color="@color/white"-->
+<!--                    app:fab_icon="@drawable/map_pdf_icon"-->
+<!--                    app:fab_orientation="portrait"-->
+<!--                    app:maxImageSize="23.5dp" />-->
+
+<!--                <com.nambimobile.widgets.efab.FabOption-->
+<!--                    android:id="@+id/fab_info"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="5dp"-->
+<!--                    android:layout_marginLeft="12dp"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:layout_marginBottom="8dp"-->
+<!--                    app:elevation="0dp"-->
+<!--                    app:fab_color="@color/white"-->
+<!--                    app:fab_icon="@drawable/map_excel_icon"-->
+<!--                    app:fab_orientation="portrait"-->
+<!--                    app:maxImageSize="23.5dp" />-->
+
+
+            </com.nambimobile.widgets.efab.ExpandableFabLayout>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

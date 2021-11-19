@@ -1,9 +1,12 @@
 package com.twobvt.gosafe.login.ui
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
@@ -77,6 +80,12 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
 
         }
     }
+    fun dismissKeyboard(activity: Activity) {
+        val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        if (null != activity.currentFocus) imm.hideSoftInputFromWindow(
+            activity.currentFocus!!.applicationWindowToken, 0
+        )
+    }
 
 
    private fun getUserValuesFromSharedPrefAsIfRememberIsTrue(){
@@ -104,6 +113,8 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
 
          when (v!!.id) {
              R.id.login_button -> {
+
+                 dismissKeyboard(this)
                  callLoginApiFromViewModel()}
              }
      }
@@ -116,6 +127,7 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
     private fun callLoginApiFromViewModel() {
          var loginButton = binding.loginButton
          var progressBarCircle = binding.progressBarCircle
+        binding.loginLayout.requestFocus()
 
          //TODO: ADD network check
           userName = binding.userName.text.toString()
@@ -123,7 +135,7 @@ class LoginScreen : BaseActivity<AuthViewModel,ActivityLoginScreenBinding,AuthRe
 
          when {
              userName.isEmpty() -> {
-                 Toast.makeText(this, "Please Enter User Name", Toast.LENGTH_SHORT).show()
+                 Toast.makeText(this, "Please Enter Username", Toast.LENGTH_SHORT).show()
              }
              password.isEmpty() -> {
                  Toast.makeText(this, "Please Enter Password", Toast.LENGTH_SHORT).show()

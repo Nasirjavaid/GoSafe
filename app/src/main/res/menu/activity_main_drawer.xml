@@ -16,6 +16,10 @@
                     android:icon="@drawable/user_icon"
                     android:title="Live Tracking" />
                 <item
+                    android:id="@+id/nav_route_deviation"
+                    android:icon="@drawable/dashboard_route_daviation_icon"
+                    android:title="Route Deviation" />
+                <item
                     android:id="@+id/nav_geofencing"
                     android:icon="@drawable/locked_icon"
                     android:title="Geofencing" />

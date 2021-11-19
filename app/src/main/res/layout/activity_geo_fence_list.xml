@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".geofenceList.uiGeofenceList.uigeofencelist.GeoFenceListActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/new_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:minHeight="?android:attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            android:background="@color/app_default_color"
+            android:theme="@style/CustomToolbarTheme">
+
+
+
+            <TextView
+                android:id="@+id/toolbarText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Geofence"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                ></TextView>
+
+        </androidx.appcompat.widget.Toolbar>
+
+<!--        <include-->
+<!--            android:id="@+id/geofence_toolbar_layout"-->
+<!--            layout="@layout/geofence_tool_bar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/geofence_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/new_toolbar"
+            android:layout_marginTop="0dp"
+            android:clipToPadding="false"
+            android:paddingTop="10dp"
+            android:paddingBottom="60dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

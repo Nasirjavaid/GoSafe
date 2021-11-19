@@ -81,7 +81,14 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
         // all pieCharts
         allPieCharts()
         // bottom list item onVehiclesLitItemClicked function
+<<<<<<< Updated upstream
         onVehiclesLitItemClicked(applicationContext)
+=======
+        onVehiclesListItemClicked(applicationContext)
+        onLiveTrackingItemClicked(applicationContext)
+//        onGeoFenceListItemClick(applicationContext)
+        onGeoFenceItemClick(applicationContext)
+>>>>>>> Stashed changes
 
 
 
@@ -146,6 +153,15 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
                logoutUser()
            }
+            R.id.nav_geofencing -> {
+
+
+                showBottomSheetGeofence()
+            }
+            R.id.nav_live_tracking -> {
+
+                startActivity(Intent(applicationContext, VehiclesAndAssetsScreen::class.java))
+            }
 
         }
         return true
@@ -613,8 +629,12 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
             )
     }
 
+<<<<<<< Updated upstream
 
     private fun onVehiclesLitItemClicked(  context: Context ){
+=======
+    private fun onVehiclesListItemClicked(  context: Context ){
+>>>>>>> Stashed changes
 
         binding.appBarDashboardScreen.vehiclesCardViewListItem.setOnClickListener{
 
@@ -622,6 +642,18 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
         }
     }
+<<<<<<< Updated upstream
+=======
+    private fun onLiveTrackingItemClicked(  context: Context ){
+
+        binding.appBarDashboardScreen.liveTrackingCardViewListItem.setOnClickListener{
+
+            startActivity(Intent(context, VehiclesAndAssetsScreen::class.java))
+
+        }
+    }
+    private fun onGeoFenceItemClick(context:Context){
+>>>>>>> Stashed changes
 
 
     private fun logoutUser() {
@@ -634,6 +666,139 @@ class DashboardScreen : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
     }
 
+<<<<<<< Updated upstream
+=======
+    private fun showBottomSheetGeofence() {
+
+
+        val bottomSheetDialog = BottomSheetDialog(this)
+
+        bottomSheetDialog.setOnShowListener(DialogInterface.OnShowListener { dialog ->
+            val d = dialog as BottomSheetDialog
+            val bottomSheet = d.findViewById<View>(R.id.design_bottom_sheet) as FrameLayout?
+                ?: return@OnShowListener
+            bottomSheet.background = null
+
+        })
+
+
+
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_geofence)
+
+
+        val dropdownCountry = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerCountry)
+        val itemsCountry = arrayOf("Pakistan")
+        val adapterCountry = ArrayAdapter(this, R.layout.spinner_item, itemsCountry)
+        if (dropdownCountry != null) {
+            dropdownCountry.adapter = adapterCountry
+        }
+        val dropdownCity = bottomSheetDialog.findViewById<Spinner>(R.id.simpleSpinnerCity)
+
+        dropdownCountry?.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long,
+            ) {
+                val item = parent.getItemAtPosition(position)
+
+                print("selected value is ")
+                print(item)
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        })
+        val itemsCity = arrayOf("Lahore", "Karachi", "Islamabad")
+        val adapterCity = ArrayAdapter(this, R.layout.spinner_item, itemsCity)
+        adapterCity.notifyDataSetChanged()
+        if (dropdownCity != null) {
+            dropdownCity.adapter = adapterCity
+        }
+
+
+
+
+
+
+        val btnCloseBottomSheetTop = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_top)
+        val viewType = bottomSheetDialog.findViewById<LinearLayout>(R.id.layout_map_history_view_type)
+        val btnGoAhead = bottomSheetDialog.findViewById<TextView>(R.id.btn_search_bottom)
+        // val resetOdometer = bottomSheetDialog.findViewById<LinearLayout>(R.id.bottom_sheet_settings_layout_reset_odometer)
+
+
+
+
+        //view type button
+        viewType?.setOnClickListener {
+            bottomSheetDialog.cancel()
+//            showBottomSheetDialogForMapHistoryViewTypeOne()
+        }
+        //close button
+        btnCloseBottomSheetTop?.setOnClickListener {
+            print("")
+            bottomSheetDialog.cancel()
+        }
+        btnGoAhead?.setOnClickListener {
+//            val text: String = dropdownCountry?.getSelectedItem().toString()
+//            print("tapiingggggggggggggggggggggggggggggg")
+//            print(text)
+            titleGf = bottomSheetDialog.title.text.toString()
+            typeGf = bottomSheetDialog.type.text.toString()
+            coordinateGf = bottomSheetDialog.coordinate.text.toString()
+                differenceGf = bottomSheetDialog.difference.text.toString()
+
+            when{
+                typeGf.isEmpty() -> {
+                    Toast.makeText(this, "Please Enter Type", Toast.LENGTH_SHORT).show()
+                }
+                titleGf.isEmpty() -> {
+                    Toast.makeText(this, "Please Enter Title", Toast.LENGTH_SHORT).show()
+                }
+                titleGf.length > 20 -> {
+                    Toast.makeText(this, "Title Shouldn't be longer than 20 characters", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                coordinateGf.isEmpty() -> {
+                    Toast.makeText(this, "Please Enter Coordinate", Toast.LENGTH_SHORT).show()
+                }
+                differenceGf.isEmpty() -> {
+                    Toast.makeText(this, "Please Enter Difference", Toast.LENGTH_SHORT).show()
+                }
+
+                else -> {
+                    startActivity(Intent(this, GeoFenceListActivity::class.java))
+                }
+
+            }
+
+
+//            print("tapiingggggggggggggggggggggggggggggg")
+
+        }
+
+        //close button and open next sheet
+//        resetOdometer?.setOnClickListener {
+//            bottomSheetDialog.cancel()
+//            showSubBottomSheetDialogForMapSettingsResetOdometerOne()
+//
+//        }
+
+//        val btnCloseBottomSheetBottom = bottomSheetDialog.findViewById<TextView>(R.id.btn_cancel_bottom)
+//
+//        //close button
+//        btnCloseBottomSheetBottom?.setOnClickListener {
+//            bottomSheetDialog.cancel()
+//        }
+
+        bottomSheetDialog.show()
+
+
+
+    }
+
+>>>>>>> Stashed changes
 
 
 

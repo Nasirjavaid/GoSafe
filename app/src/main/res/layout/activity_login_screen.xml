@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
 <LinearLayout
+    android:id="@+id/login_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -62,7 +63,7 @@
                         android:id="@+id/user_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="User Name"
+                        android:hint="Username"
                         android:drawablePadding="8dp"
                         android:inputType="textEmailAddress"
                         android:backgroundTint="@color/app_default_color_secondary"
@@ -91,6 +92,7 @@
                         android:paddingBottom="16dp"
                         android:textSize="@dimen/login_input_text_size"
                         android:paddingRight="10dp"
+                        android:imeOptions="actionNext"
 
                         />
 
@@ -125,11 +127,12 @@
                     android:layout_marginEnd="-25dp"
                     android:layout_marginRight="-25dp"
                     android:translationZ="90dp"
-                    android:background="@drawable/rounded_shape_for_login_screen_button"
+                    android:background="@drawable/login_screen_icon"
                     >
 
 
                 </View>
+
 
                 <Button
                 android:id="@+id/login_button"
@@ -138,7 +141,7 @@
                 android:layout_centerInParent="true"
                     android:layout_marginTop="8dp"
                 android:paddingHorizontal="80dp"
-                android:text="Login"
+                android:text="Sign In"
                     android:onClick="onClick"
                     android:textColor="@color/white"
                 android:textAllCaps="false"
